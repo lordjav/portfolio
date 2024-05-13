@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="author" content="Javier Meza developer">
+  <meta name="description" content="Software developer portfolio">
+  <meta name="keywords"
+    content="programming, web development, software, engineering, portfolio, full-stack, frontend, backend">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet">
+  <title>Javier Meza</title>
+</head>
+
+<body id="body" onload="changeMode()" onload="changeTheme()">  
+  <header id="header">
+    <div class="space" id="space1"></div>
+    <span id="light-dark-mode">
+      <svg id="light-icon" onclick="changeMode()" xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em" viewBox="0 0 24 24"><path id="light-icon-path" fill="#5AAAD2" stroke="#5AAAD2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4V2m0 18v2M6.414 6.414L5 5m12.728 12.728l1.414 1.414M4 12H2m18 0h2m-4.271-5.586L19.143 5M6.415 17.728L5 19.142M12 17a5 5 0 1 1 0-10a5 5 0 0 1 0 10" />Sorry, your browser does not support inline SVG.</svg>
+      <svg id="dark-icon" onclick="changeMode()" xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em" viewBox="0 0 24 24"><path id="dark-icon-path" fill="none" stroke="#003852" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6a9 9 0 0 0 9 9c.91 0 1.787-.134 2.614-.385A9.004 9.004 0 0 1 12 21A9 9 0 0 1 9.386 3.386A8.999 8.999 0 0 0 9 6"/>Sorry, your browser does not support inline SVG.</svg>      
+    </span>
+    <span id="change-theme">
+      <svg id="color-icon" xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em" viewBox="0 0 24 24"><path id="color-icon-path" fill="#5AAAD2" d="M12 3a9 9 0 0 0 0 18c.83 0 1.5-.67 1.5-1.5c0-.39-.15-.74-.39-1.01c-.23-.26-.38-.61-.38-.99c0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5c0-4.42-4.03-8-9-8m-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9S8 9.67 8 10.5S7.33 12 6.5 12m3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8m5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8m3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5s-.67 1.5-1.5 1.5"/></svg>
+      <span id="dropdown-theme">
+        <svg id="blue-theme" onclick="changeTheme(colorBlue, lightDarkMode)" xmlns="http://www.w3.org/2000/svg" width="2.2em" height="2.2em" viewBox="0 0 24 24"><g id="blue-theme-icon-g" fill="none"><circle id="blue-theme-icon-circle" cx="12" cy="12" r="9" stroke="white" stroke-width="2"/><path id="blue-theme-icon-path" fill="white" d="M18.364 5.636A9 9 0 0 0 5.636 18.364L12 12z"/></g></svg>
+        <svg id="green-theme" onclick="changeTheme(colorGreen, lightDarkMode)" xmlns="http://www.w3.org/2000/svg" width="2.2em" height="2.2em" viewBox="0 0 24 24"><g id="green-theme-icon-g" fill="none"><circle id="green-theme-icon-circle" cx="12" cy="12" r="9" stroke="white" stroke-width="2"/><path id="green-theme-icon-path" fill="white" d="M18.364 5.636A9 9 0 0 0 5.636 18.364L12 12z"/></g></svg>
+        <svg id="red-theme" onclick="changeTheme(colorRed, lightDarkMode)" xmlns="http://www.w3.org/2000/svg" width="2.2em" height="2.2em" viewBox="0 0 24 24"><g id="red-theme-icon-g" fill="none"><circle id="red-theme-icon-circle" cx="12" cy="12" r="9" stroke="white" stroke-width="2"/><path id="red-theme-icon-path" fill="white" d="M18.364 5.636A9 9 0 0 0 5.636 18.364L12 12z"/></g></svg>
+      </span>
+    </span>
+    <span id="scrollmeter">0</span>
+    <section id="section-name">
+      <h1 id="name"><span class="initials" id="J">J</span><span class="vanishing-letters" id="avier">avier </span>
+        <span class="initials" id="M">M</span><span class="vanishing-letters" id="eza">eza</span>
+      </h1>
+    </section>
+    <section class="navbar-span" id="span1"><h3 class="sections-navbar" id="Projects-navbar"></h3></section>
+    <section class="navbar-span" id="span2"><h3 class="sections-navbar" id="Experience-navbar"></h3></section>
+    <section class="navbar-span" id="span3"><h3 class="sections-navbar" id="Aboutme-navbar"></h3></section>
+    <section class="navbar-span" id="span4"><h3 class="sections-navbar" id="Contact-navbar"></h3></section>
+    <h2 class="vanishing-letters" id="subtitle">Software development</h2>    
+  </header>
+  <main>
+    <div class="space" id="space2"></div>
+    <article>
+      <h3 id="projects">Projects</h3>
+      <figure></figure>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in fringilla nibh. Phasellus dictum commodo
+        aliquam.
+        Praesent sed pharetra justo, elementum dapibus elit. Mauris et efficitur lectus. Mauris sodales ipsum dolor, eu
+        pulvinar ex tincidunt quis. Nunc in sapien vel massa tempus ultrices ac sed mi. Suspendisse vel fringilla
+        tellus.
+        Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam egestas augue vel
+        libero
+        finibus, fermentum rutrum sem maximus. Sed sed efficitur ex. Suspendisse ullamcorper lacus iaculis magna sodales
+        imperdiet ut in purus. Praesent consectetur lacus nunc, consequat placerat metus auctor a.</p>
+    </article>
+    <article>
+      <h3>Experience</h3>
+      <figure></figure>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in fringilla nibh. Phasellus dictum commodo
+        aliquam.
+        Praesent sed pharetra justo, elementum dapibus elit. Mauris et efficitur lectus. Mauris sodales ipsum dolor, eu
+        pulvinar ex tincidunt quis. Nunc in sapien vel massa tempus ultrices ac sed mi. Suspendisse vel fringilla
+        tellus.
+        Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam egestas augue vel
+        libero
+        finibus, fermentum rutrum sem maximus. Sed sed efficitur ex. Suspendisse ullamcorper lacus iaculis magna sodales
+        imperdiet ut in purus. Praesent consectetur lacus nunc, consequat placerat metus auctor a.</p>
+    </article>
+    <article>
+      <h3>About me</h3>
+      <figure></figure>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in fringilla nibh. Phasellus dictum commodo
+        aliquam.
+        Praesent sed pharetra justo, elementum dapibus elit. Mauris et efficitur lectus. Mauris sodales ipsum dolor, eu
+        pulvinar ex tincidunt quis. Nunc in sapien vel massa tempus ultrices ac sed mi. Suspendisse vel fringilla
+        tellus.
+        Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam egestas augue vel
+        libero
+        finibus, fermentum rutrum sem maximus. Sed sed efficitur ex. Suspendisse ullamcorper lacus iaculis magna sodales
+        imperdiet ut in purus. Praesent consectetur lacus nunc, consequat placerat metus auctor a.</p>
+    </article>
+    <article>
+      <h3>Contact</h3>
+      <figure></figure>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in fringilla nibh. Phasellus dictum commodo
+        aliquam.
+        Praesent sed pharetra justo, elementum dapibus elit. Mauris et efficitur lectus. Mauris sodales ipsum dolor, eu
+        pulvinar ex tincidunt quis. Nunc in sapien vel massa tempus ultrices ac sed mi. Suspendisse vel fringilla
+        tellus.
+        Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam egestas augue vel
+        libero
+        finibus, fermentum rutrum sem maximus. Sed sed efficitur ex. Suspendisse ullamcorper lacus iaculis magna sodales
+        imperdiet ut in purus. Praesent consectetur lacus nunc, consequat placerat metus auctor a.</p>
+    </article>
+    <div id="space3"></div>
+  </main>
+  <script src="logic.js"></script>
+</body>
+
+</html>
