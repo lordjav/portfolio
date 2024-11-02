@@ -15,33 +15,6 @@ function adjustStyle(HTMLelement, CSSelement) {
     return parseInt(value);
 };
 
-//function for changing navbar color
-function changeNavbarColor(choosedColor) {
-    if (document.documentElement.scrollTop > 500) {
-        var choosedNavbarColor;
-        switch (choosedColor) {
-            case colorBlue:
-                choosedNavbarColor = lightDarkMode ? "rgb(90, 170, 210, 0.6)" : "rgba(0, 56, 82, 0.6)";                
-                break;
-            
-            case colorGreen:
-                choosedNavbarColor = lightDarkMode ? "rgb(90, 210, 170, 0.6)" : "rgba(0, 82, 56, 0.6)";
-                break;
-            
-            case colorRed:
-                choosedNavbarColor = lightDarkMode ? "rgb(210, 110, 110, 0.6)" : "rgba(122, 0, 0, 0.6)";
-                break;
-        }
-        H.style.backgroundColor = choosedNavbarColor;
-        H.style.boxShadow = "0 10px 50px #001216";   
-        H.style.backdropFilter = "blur(10px)";
-    } else {
-        H.style.backgroundColor = "initial";
-        H.style.boxShadow = "initial";
-        H.style.backdropFilter = "initial";
-    }
-}
-
 //Variables
 const nameContainer = document.getElementById("name-container"),
 fontSizeInitials = adjustStyle("J", "font-size"),
@@ -70,18 +43,20 @@ colorGreen = ["rgb(182, 242, 222)", "rgb(90, 210, 170)", "rgb(222, 36, 76)", "rg
 colorBlue = ["rgb(182, 222, 242)", "rgb(90, 170, 210)", "rgb(199, 199, 26)", "rgb(0, 56, 82)", "rgb(2, 22, 32)"];
 // colorBlueHex = ["#B6DEF2", "#5AAAD2", "#C7C71A", "#003852", "#021620"];
 const colorArray = {'red': colorRed, 'green': colorGreen, 'blue': colorBlue};
-console.log(localStorage.getItem('lightDarkMode'));
-console.log(localStorage.getItem('choosedColor'));
+//console.log(localStorage.getItem('choosedColor'));
 var choosedColor;
 if (localStorage.getItem('choosedColor') != null) {
     choosedColor = localStorage.getItem('choosedColor');
 } else {
-    choosedColor = colorBlue;
+    choosedColor = 'blue';
 }
-var lightDarkMode = localStorage.getItem('lightDarkMode') ? localStorage.getItem('lightDarkMode') : 'false';
-var flag = false;
 
-changeNavbarColor(choosedColor);
+var lightDarkMode;
+if (localStorage.getItem('lightDarkMode') == 'true') {
+        lightDarkMode = true;
+} else {
+    lightDarkMode = false;
+}
 
 window.addEventListener('resize', function() {
     if (this.document.documentElement.scrollTop < 500) {
@@ -92,9 +67,7 @@ window.addEventListener('resize', function() {
 window.addEventListener('scroll', function() {
     const scroller = document.documentElement.scrollTop;
     document.getElementById("scrollmeter").innerHTML = scroller.toFixed();
-    
-    changeNavbarColor(choosedColor);
-    
+  
     //Reduce initial's font size on scroll        
     initials.forEach((letter) => {
         letter.style.fontSize = (fontSizeInitials - ((fontSizeInitials - 60) / 500 * scroller)).toFixed() + "px";
@@ -154,60 +127,89 @@ window.addEventListener('scroll', function() {
     }
 });
 
+//function for changing navbar color
+function changeNavbarColor(choosedColor) {
+    if (document.documentElement.scrollTop > 500) {
+        var choosedNavbarColor;
+        switch (choosedColor) {
+            case 'blue':
+                choosedNavbarColor = lightDarkMode ? "rgb(90, 170, 210, 0.6)" : "rgba(0, 56, 82, 0.6)";                
+                break;
+            
+            case 'green':
+                choosedNavbarColor = lightDarkMode ? "rgb(90, 210, 170, 0.6)" : "rgba(0, 82, 56, 0.6)";
+                break;
+            
+            case 'red':
+                choosedNavbarColor = lightDarkMode ? "rgb(210, 110, 110, 0.6)" : "rgba(122, 0, 0, 0.6)";
+                break;
+        }        
+        H.style.backgroundColor = choosedNavbarColor;
+        H.style.boxShadow = "0 10px 50px #001216";   
+        H.style.backdropFilter = "blur(10px)";
+    } else {
+        H.style.backgroundColor = "initial";
+        H.style.boxShadow = "initial";
+        H.style.backdropFilter = "initial";
+    }
+}
+
 //Switch dark/light mode
 function changeIconColor() {
     icons = ['light-icon-path', 'dark-icon-path', 'color-icon-path'];
 
     for (let i = 0; i < icons.length; i++) {
-        document.getElementById(icons[i]).style.stroke = lightDarkMode ? choosedColor[3] : choosedColor[1];
-        document.getElementById(icons[i]).style.fill = lightDarkMode ? choosedColor[3] : choosedColor[1];
+        document.getElementById(icons[i]).style.stroke = lightDarkMode ? colorArray[choosedColor][3] : colorArray[choosedColor][1];
+        document.getElementById(icons[i]).style.fill = lightDarkMode ? colorArray[choosedColor][3] : colorArray[choosedColor][1];
     }
 }
 
-function changeMode() {    
+function changeMode() {
     lightDarkMode = !lightDarkMode;
     localStorage.setItem('lightDarkMode', lightDarkMode);
     lightMode.style.display = lightDarkMode ? "none" : "inline-block";
     darkMode.style.display = lightDarkMode ? "inline-block" : "none";
-    document.getElementById("body").style.backgroundColor = lightDarkMode ? choosedColor[0] : choosedColor[4];
-    N.style.color = lightDarkMode ? choosedColor[3] : choosedColor[1];
-    S.style.color = lightDarkMode ? choosedColor[4] : choosedColor[0]; 
+    document.getElementById("body").style.backgroundColor = lightDarkMode ? colorArray[choosedColor][0] : colorArray[choosedColor][4];
+    N.style.color = lightDarkMode ? colorArray[choosedColor][3] : colorArray[choosedColor][1];
+    S.style.color = lightDarkMode ? colorArray[choosedColor][4] : colorArray[choosedColor][0]; 
     changeNavbarColor(choosedColor);
     document.querySelectorAll("p").forEach((element) => {
-        element.style.color = lightDarkMode ? choosedColor[4] : choosedColor[0];
+        element.style.color = lightDarkMode ? colorArray[choosedColor][4] : colorArray[choosedColor][0];
+    })
+    changeIconColor();    
+}
+
+//Change theme
+function changeTheme (color) {
+    localStorage.setItem('choosedColor', color);
+    choosedColor = color;
+    changeNavbarColor(color);
+    document.getElementById("body").style.backgroundColor = lightDarkMode ? colorArray[color][0] : colorArray[color][4];
+    N.style.color = lightDarkMode ? colorArray[color][3] : colorArray[color][1];
+    S.style.color = lightDarkMode ? colorArray[color][4] : colorArray[color][0];
+    document.querySelectorAll("p").forEach((element) => {
+        element.style.color = lightDarkMode ? colorArray[color][4] : colorArray[color][0];
+    })
+    document.querySelectorAll("h3").forEach((element) => {
+        element.style.color = colorArray[color][2];
     })
     changeIconColor();
 }
 
-//Change theme
-function changeTheme (colorArray, lightDarkMode) {
-    choosedColor = colorArray;
-    localStorage.setItem('choosedColor', choosedColor);    
-    changeNavbarColor(choosedColor);
-    document.getElementById("body").style.backgroundColor = lightDarkMode ? colorArray[0] : colorArray[4];
-    N.style.color = lightDarkMode ? colorArray[3] : colorArray[1];
-    S.style.color = lightDarkMode ? colorArray[4] : colorArray[0];
-    document.querySelectorAll("p").forEach((element) => {
-        element.style.color = lightDarkMode ? colorArray[4] : colorArray[0];
-    })
-    document.querySelectorAll("h3").forEach((element) => {
-        element.style.color = colorArray[2];
-    })
-    changeIconColor();
-}
+changeTheme(choosedColor);
 
 N.addEventListener('mouseenter', () => {
     //N.style.textShadow = "0 15px 40px #5AAAD2";
     switch (choosedColor) {
-    case colorBlue:
+    case 'blue':
         N.style.textShadow = lightDarkMode ? "0 15px 40px #003852" : "0 15px 40px #5AAAD2";
         break;
     
-    case colorGreen:
+    case 'green':
         N.style.textShadow = lightDarkMode ? "0 0px 50px #005238" : "0 0px 50px #5AD2AA";
         break;
     
-    case colorRed:
+    case 'red':
         N.style.textShadow = lightDarkMode ? "0 15px 40px #7A0000" : "0 15px 40px #D26E6E";
         break;
     
@@ -219,7 +221,9 @@ N.addEventListener('mouseleave', () => {
     N.style.textShadow = "none";
 })
 
-
+document.addEventListener('DOMContentLoaded', function() {
+   document.getElementById('body').style.visibility = 'visible'; 
+});
 
 /*Pendientes por avanzar
 --Agregar hover a los elementos.
