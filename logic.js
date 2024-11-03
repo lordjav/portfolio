@@ -32,7 +32,8 @@ lightMode = document.getElementById("light-icon"),
 darkMode = document.getElementById("dark-icon"),
 sp1Height = adjustStyle("space1", "height"),
 projectsNavbar = document.getElementById("Projects-navbar"),
-experienceNavbar = document.getElementById("Experience-navbar"),
+certificationsNavbar = document.getElementById("Certifications-navbar"),
+cert1 = document.getElementById("cert1"),
 aboutMeNavbar = document.getElementById("Aboutme-navbar"),
 contactNavbar = document.getElementById("Contact-navbar"),
 initials = [J, M],
@@ -108,7 +109,7 @@ window.addEventListener('scroll', function() {
         document.getElementById("space1").style.height = "0"; //Delete <space1>
         H.style.flexDirection = "row"; //Change aspect of header into navbar
         projectsNavbar.innerHTML = "Projects"; // Show 'Projects' in navbar
-        experienceNavbar.innerHTML = "Experience"; // Show 'Experience' in navbar
+        certificationsNavbar.innerHTML = "Certifications"; // Show 'Certifications' in navbar
         aboutMeNavbar.innerHTML = "About me"; // Show 'About me' in navbar
         contactNavbar.innerHTML = "Contact"; // Show 'Contact' in navbar
         nameContainer.style.width = "140px"; //Fix name-container width 
@@ -118,7 +119,7 @@ window.addEventListener('scroll', function() {
         S.innerHTML = "Software development";
         H.style.flexDirection = "column";
         projectsNavbar.innerHTML = "";
-        experienceNavbar.innerHTML = "";
+        certificationsNavbar.innerHTML = "";
         aboutMeNavbar.innerHTML = "";
         contactNavbar.innerHTML = "";
         H.style.backgroundColor = "initial";
@@ -179,6 +180,9 @@ function changeMode() {
     changeIconColor();    
 }
 
+lightMode.style.display = lightDarkMode ? "none" : "inline-block";
+darkMode.style.display = lightDarkMode ? "inline-block" : "none";
+
 //Change theme
 function changeTheme (color) {
     localStorage.setItem('choosedColor', color);
@@ -199,10 +203,10 @@ function changeTheme (color) {
 changeTheme(choosedColor);
 
 N.addEventListener('mouseenter', () => {
-    //N.style.textShadow = "0 15px 40px #5AAAD2";
     switch (choosedColor) {
     case 'blue':
         N.style.textShadow = lightDarkMode ? "0 15px 40px #003852" : "0 15px 40px #5AAAD2";
+
         break;
     
     case 'green':
@@ -224,6 +228,31 @@ N.addEventListener('mouseleave', () => {
 document.addEventListener('DOMContentLoaded', function() {
    document.getElementById('body').style.visibility = 'visible'; 
 });
+
+// Modal
+function showModal(id) {
+    let modal = document.getElementById(id);
+    modal.style.display = "flex";
+    modal.classList.remove('hide');
+    modal.classList.add('show');
+}
+function closeModal(id) {
+    let modal = document.getElementById(id);
+    modal.style.display = "none";
+    modal.classList.remove('show');
+    modal.classList.add('hide');
+}
+window.onclick = function(event) {
+    if (event.target.id == "modal") {
+        modal.classList.remove('show');
+        modal.classList.add('hide');
+        modal.addEventListener('animationend', (event) => {
+            if (event.animationName === 'close-modal') {
+                modal.style.display = 'none';
+            }
+        });
+    }
+}
 
 /*Pendientes por avanzar
 --Agregar hover a los elementos.
