@@ -41,18 +41,43 @@
       </h1>
     </section>
     <div id="sections-container">
-      <section class="navbar-span" id="span1"><h3 class="sections-navbar" id="Projects-navbar"></h3></section>
-      <section class="navbar-span" id="span2"><h3 class="sections-navbar" id="Certifications-navbar"></h3></section>
-      <section class="navbar-span" id="span3"><h3 class="sections-navbar" id="Aboutme-navbar"></h3></section>
-      <section class="navbar-span" id="span4"><h3 class="sections-navbar" id="Contact-navbar"></h3></section>
+      <a href="#projects"><section class="navbar-span" id="span1"><h3 class="sections-navbar" id="Projects-navbar">Projects</h3></section></a>
+      <a href="#certifications"><section class="navbar-span" id="span2"><h3 class="sections-navbar" id="Certifications-navbar">Certifications</h3></section></a>
+      <a href="#about-me"><section class="navbar-span" id="span3"><h3 class="sections-navbar" id="Aboutme-navbar">About me</h3></section></a>
+      <a href="#contact"><section class="navbar-span" id="span4"><h3 class="sections-navbar" id="Contact-navbar">Contact</h3></section></a>
     </div>
+    <div id="space4"></div>
     <h2 class="vanishing-letters" id="subtitle">Software development</h2>
   </header>
   <main>
     <div class="space" id="space2"></div>
-    <article>
-      <h3 id="projects">Projects</h3>
-      <figure></figure>
+    <article id="projects">
+      <div style="height: 120px;"></div>
+      <h3 id="projects-title">Projects</h3>
+      <div class="project">
+        <h4 id="project-title">Trackolus</h4>
+        <p id="project-description">Trackolus is a Warehouse Management System (WMS) designed to centrally control, supervise and verify the storage of one or more warehouses. Its ease of use and simplicity in organizing information make it an appropriate tool for small and medium-sized businesses.</p>
+        <img class="image" id="trackolus-image" src="trackolus.png">
+        <div class="options-container">
+          <div class="project-action" id="trackolus-demo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 32 32"><path fill="black" d="M20 2v12l10-6z"/><path fill="black" d="M28 14v8H4V6h10V4H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h8v4H8v2h16v-2h-4v-4h8a2 2 0 0 0 2-2v-8zM18 28h-4v-4h4z"/></svg>
+            <p class="project-action-text">Demo</p>
+          </div>
+          <div class="project-action" id="trackolus-code">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><g fill="none"><g clip-path="url(#akarIconsGithubFill0)"><path fill="black" fill-rule="evenodd" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385c.6.105.825-.255.825-.57c0-.285-.015-1.23-.015-2.235c-3.015.555-3.795-.735-4.035-1.41c-.135-.345-.72-1.41-1.23-1.695c-.42-.225-1.02-.78-.015-.795c.945-.015 1.62.87 1.845 1.23c1.08 1.815 2.805 1.305 3.495.99c.105-.78.42-1.305.765-1.605c-2.67-.3-5.46-1.335-5.46-5.925c0-1.305.465-2.385 1.23-3.225c-.12-.3-.54-1.53.12-3.18c0 0 1.005-.315 3.3 1.23c.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23c.66 1.65.24 2.88.12 3.18c.765.84 1.23 1.905 1.23 3.225c0 4.605-2.805 5.625-5.475 5.925c.435.375.81 1.095.81 2.22c0 1.605-.015 2.895-.015 3.3c0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12" clip-rule="evenodd"/></g><defs><clipPath id="akarIconsGithubFill0"><path fill="black" d="M0 0h24v24H0z"/></clipPath></defs></g></svg>
+            <p class="project-action-text">Code</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article id="certifications">
+      <div style="height: 120px;"></div>
+      <h3 id="certifications-title">Certifications</h3>
+      <img class="image" id="cert1" src="cert1.png" onclick="showModal('modal')">
+    </article>
+    <article id="about-me">
+      <div style="height: 120px;"></div>
+      <h3 id="abount-me-title">About me</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in fringilla nibh. Phasellus dictum commodo
         aliquam.
         Praesent sed pharetra justo, elementum dapibus elit. Mauris et efficitur lectus. Mauris sodales ipsum dolor, eu
@@ -63,27 +88,9 @@
         finibus, fermentum rutrum sem maximus. Sed sed efficitur ex. Suspendisse ullamcorper lacus iaculis magna sodales
         imperdiet ut in purus. Praesent consectetur lacus nunc, consequat placerat metus auctor a.</p>
     </article>
-    <article>
-      <h3>Certifications</h3>
-      <figure></figure>
-      <img class="certs" id="cert1" src="cert1.png" onclick="showModal('modal')">
-    </article>
-    <article>
-      <h3>About me</h3>
-      <figure></figure>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in fringilla nibh. Phasellus dictum commodo
-        aliquam.
-        Praesent sed pharetra justo, elementum dapibus elit. Mauris et efficitur lectus. Mauris sodales ipsum dolor, eu
-        pulvinar ex tincidunt quis. Nunc in sapien vel massa tempus ultrices ac sed mi. Suspendisse vel fringilla
-        tellus.
-        Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam egestas augue vel
-        libero
-        finibus, fermentum rutrum sem maximus. Sed sed efficitur ex. Suspendisse ullamcorper lacus iaculis magna sodales
-        imperdiet ut in purus. Praesent consectetur lacus nunc, consequat placerat metus auctor a.</p>
-    </article>
-    <article>
-      <h3>Contact</h3>
-      <figure></figure>
+    <article id="contact">
+      <div style="height: 120px;"></div>
+      <h3 id="contact-title">Contact</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in fringilla nibh. Phasellus dictum commodo
         aliquam.
         Praesent sed pharetra justo, elementum dapibus elit. Mauris et efficitur lectus. Mauris sodales ipsum dolor, eu

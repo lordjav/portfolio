@@ -30,12 +30,14 @@ vanishingLetters = [document.getElementById("avier"), document.getElementById("e
 S = document.getElementById("subtitle"),
 lightMode = document.getElementById("light-icon"),
 darkMode = document.getElementById("dark-icon"),
+space4 = document.getElementById('space4'),
 sp1Height = adjustStyle("space1", "height"),
+sectionsContainer = document.getElementById("sections-container"),
 projectsNavbar = document.getElementById("Projects-navbar"),
 certificationsNavbar = document.getElementById("Certifications-navbar"),
-cert1 = document.getElementById("cert1"),
 aboutMeNavbar = document.getElementById("Aboutme-navbar"),
 contactNavbar = document.getElementById("Contact-navbar"),
+cert1 = document.getElementById("cert1"),
 initials = [J, M],
 colorRed = ["rgb(242, 222, 222)", "rgb(210, 110, 110)", "rgb(26, 199, 199)", "rgb(122, 0, 0)", "rgb(64, 11, 11)"],
 // colorRedHex = ["#F2DEDE", "#D26E6E", "#1AC7C7", "#7A0000", "#400B0B"];
@@ -108,23 +110,19 @@ window.addEventListener('scroll', function() {
         changeNavbarColor(choosedColor); //Change navbar color
         document.getElementById("space1").style.height = "0"; //Delete <space1>
         H.style.flexDirection = "row"; //Change aspect of header into navbar
-        projectsNavbar.innerHTML = "Projects"; // Show 'Projects' in navbar
-        certificationsNavbar.innerHTML = "Certifications"; // Show 'Certifications' in navbar
-        aboutMeNavbar.innerHTML = "About me"; // Show 'About me' in navbar
-        contactNavbar.innerHTML = "Contact"; // Show 'Contact' in navbar
+        sectionsContainer.classList.remove('display-none'); //Show sections-container
         nameContainer.style.width = "140px"; //Fix name-container width 
         N.style.lineHeight = "58%"; //Fix name's line-height
         nameContainer.style.margin = "0"; //Fix name's margin
+        space4.style.display = "inline-block";
     } else {
         S.innerHTML = "Software development";
         H.style.flexDirection = "column";
-        projectsNavbar.innerHTML = "";
-        certificationsNavbar.innerHTML = "";
-        aboutMeNavbar.innerHTML = "";
-        contactNavbar.innerHTML = "";
+        sectionsContainer.classList.add('display-none');
         H.style.backgroundColor = "initial";
         H.style.boxShadow = "initial";
         H.style.backdropFilter = "initial";
+        space4.style.display = "none";
     }
 });
 

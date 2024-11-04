@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
-  }
+    font-family: "Open Sans", sans-serif;
+}
 
 html {
     scroll-behavior: smooth;
@@ -35,6 +36,15 @@ h3 {
     margin: 0 10px;
 }
 
+h4 {
+    color: #003852;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0 10px;
+}
+
 main {
     position: relative;
     max-width: 1000px;    
@@ -43,27 +53,18 @@ main {
 
 article {
     align-items: center;
+    margin-bottom: 50px;
 }
 
 #sections-container {
     display: none;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    margin: 0;
+    margin: auto;
+    width: 65vw;
     padding: 0;
 }
-
-/*.navbar-span {
-    height: 0;
-    float: left;
-}
-
-.sections-navbar {
-    margin: 0;
-    opacity: 0;
-    transition: opacity 500ms ease
-}*/
 
 #space1 {
     height: 12rem;
@@ -75,6 +76,11 @@ article {
 
 #space3 {
     height: 30rem;
+}
+
+#space4 {
+    display: none;
+    width: 140px;
 }
 
 p {
@@ -214,18 +220,56 @@ p {
     left: 0;
 }
 
-#cert1 {
-    width: 90vw;
-    max-width: 1000px;
-    padding: calc(100vw / 30);
+.image {
+    padding: calc(100vw / 45);
     margin: auto;
     display: flex;
     transition: box-shadow, transform 300ms ease;
+    border-radius: 20px;
+}
+
+#trackolus-image {
+    width: 80vw;
+    max-width: 500px;
+}
+
+.options-container {
+    margin: auto;
+    width: 80vw;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-evenly
+}
+
+.project-action {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    background-color: #003852;
+    transition: box-shadow, transform 300ms ease;
+}
+
+.project-action:hover {
+    box-shadow: 0 0 15px 5px #595959;
+    transform: scale(1.01);
+}
+
+.project-action-text {
+    color: #B6DEF2 !important;
+    margin: 0;
+}
+
+#cert1 {
+    width: 90vw;
+    max-width: 800px;
 }
 
 #cert1:hover {
     box-shadow: 0 0 15px 5px #595959;
-    transform: scale(1.02);
+    transform: scale(1.01);
 }
 
 #modal {
@@ -241,11 +285,11 @@ p {
 }
 
 .show {
-    animation: show-modal 400ms forwards;
+    animation: show-modal 300ms forwards;
 }
 
 .hide {
-    animation: close-modal 400ms forwards;
+    animation: close-modal 300ms forwards;
 }
 
 @keyframes show-modal {
@@ -276,24 +320,27 @@ p {
     height: auto;
 }
 
+a {
+    text-decoration: none;
+}
 
-/*@media only screen and (max-width: 600px) {
-    html {
-        font-size: 14px;
+.display-none {
+    display: none !important;
+}
+
+
+@media only screen and (min-width: 0) {
+    #sections-container {
+        display: none;
     }
 }
 
 @media only screen and (min-width: 601px) {
-    html {
-        font-size: 17px;
-    }
+    
 }
 
-@media only screen and (min-width: 993px) {
-    html {
-        font-size: 20px;
-    }
+@media only screen and (min-width: 992px) {
     #sections-container {
         display: flex;
     }
-}*/
+}
