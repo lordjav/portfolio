@@ -22,6 +22,11 @@
 <body id="body" style="visibility:hidden;">
   <header id="header">
     <div class="space" id="space1"></div>
+    <button id="change-red-button" onclick="changeColor('red')">Red</button>
+    <button id="change-green-button" onclick="changeColor('green')">Green</button>
+    <button id="change-blue-button" onclick="changeColor('blue')">Blue</button>
+    <div class="light" id="test">word</div>
+    <button id="change-mode-button">Mode</button>
     <span id="light-dark-mode">
       <svg id="light-icon" onclick="changeMode()" xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em" viewBox="0 0 24 24"><path id="light-icon-path" fill="#5AAAD2" stroke="#5AAAD2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4V2m0 18v2M6.414 6.414L5 5m12.728 12.728l1.414 1.414M4 12H2m18 0h2m-4.271-5.586L19.143 5M6.415 17.728L5 19.142M12 17a5 5 0 1 1 0-10a5 5 0 0 1 0 10" />Sorry, your browser does not support inline SVG.</svg>
       <svg id="dark-icon" onclick="changeMode()" xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em" viewBox="0 0 24 24"><path id="dark-icon-path" fill="none" stroke="#003852" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6a9 9 0 0 0 9 9c.91 0 1.787-.134 2.614-.385A9.004 9.004 0 0 1 12 21A9 9 0 0 1 9.386 3.386A8.999 8.999 0 0 0 9 6"/>Sorry, your browser does not support inline SVG.</svg>      
@@ -40,9 +45,9 @@
         <span id="last-name"><span class="initials" id="M">M</span><span class="vanishing-letters" id="eza">eza</span></span>
       </h1>
     </section>
-    <div id="sections-container">
+    <div class="display-none" id="sections-container">
       <a href="#projects"><section class="navbar-span" id="span1"><h3 class="sections-navbar" id="Projects-navbar">Projects</h3></section></a>
-      <a href="#certifications"><section class="navbar-span" id="span2"><h3 class="sections-navbar" id="Certifications-navbar">Certifications</h3></section></a>
+      <a href="#certificates"><section class="navbar-span" id="span2"><h3 class="sections-navbar" id="Certificates-navbar">Certificates</h3></section></a>
       <a href="#about-me"><section class="navbar-span" id="span3"><h3 class="sections-navbar" id="Aboutme-navbar">About me</h3></section></a>
       <a href="#contact"><section class="navbar-span" id="span4"><h3 class="sections-navbar" id="Contact-navbar">Contact</h3></section></a>
     </div>
@@ -70,9 +75,9 @@
         </div>
       </div>
     </article>
-    <article id="certifications">
+    <article id="certificates">
       <div style="height: 120px;"></div>
-      <h3 id="certifications-title">Certifications</h3>
+      <h3 id="certificates-title">Certificates</h3>
       <img class="image" id="cert1" src="cert1.png" onclick="showModal('modal')">
     </article>
     <article id="about-me">

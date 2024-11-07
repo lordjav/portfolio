@@ -39,11 +39,11 @@ aboutMeNavbar = document.getElementById("Aboutme-navbar"),
 contactNavbar = document.getElementById("Contact-navbar"),
 cert1 = document.getElementById("cert1"),
 initials = [J, M],
-colorRed = ["rgb(242, 222, 222)", "rgb(210, 110, 110)", "rgb(26, 199, 199)", "rgb(122, 0, 0)", "rgb(64, 11, 11)"],
+colorRed = ["rgb(242, 222, 222)", "rgb(210, 110, 110)", "rgb(55, 175, 175)", "rgb(122, 0, 0)", "rgb(48, 0, 0)"],
 // colorRedHex = ["#F2DEDE", "#D26E6E", "#1AC7C7", "#7A0000", "#400B0B"];
-colorGreen = ["rgb(182, 242, 222)", "rgb(90, 210, 170)", "rgb(222, 36, 76)", "rgb(0, 82, 56)", "rgb(2, 32, 22)"],
+colorGreen = ["rgb(222, 242, 222)", "rgb(110, 210, 110)", "rgb(175, 55, 175)", "rgb(0, 122, 0)", "rgb(0, 48, 0)"],
 // colorGreenHex = ["#B6F2DE", "#5AD2AA", "#DE244C", "#005238", "#022016"];
-colorBlue = ["rgb(182, 222, 242)", "rgb(90, 170, 210)", "rgb(199, 199, 26)", "rgb(0, 56, 82)", "rgb(2, 22, 32)"];
+colorBlue = ["rgb(222, 222, 242)", "rgb(110, 110, 210)", "rgb(175, 175, 55)", "rgb(0, 0, 122)", "rgb(0, 0, 48)"];
 // colorBlueHex = ["#B6DEF2", "#5AAAD2", "#C7C71A", "#003852", "#021620"];
 const colorArray = {'red': colorRed, 'green': colorGreen, 'blue': colorBlue};
 //console.log(localStorage.getItem('choosedColor'));
@@ -261,3 +261,15 @@ window.onclick = function(event) {
 --Agregar más colores a la lista de temas.
 --
 */
+
+function changeColor(DOMElement, color) {
+    var colors = ['red', 'green', 'blue'];
+    colors.forEach((element) => {
+        DOMElement.classList.remove(element);
+    });
+    DOMElement.classList.add(color);
+}
+
+document.getElementById('change-mode-button').addEventListener('click', () => {
+    document.getElementById('test').classList.toggle('light');
+});

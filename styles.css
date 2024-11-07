@@ -3,13 +3,112 @@
     font-family: "Open Sans", sans-serif;
 }
 
+:root {
+    --red-lighter: rgba(242, 222, 222, 1);
+    --red-light: rgba(210, 110, 110, 1);
+    --red-contrast: rgba(55, 175, 175, 1);
+    --red-dark: rgba(122, 0, 0, 1);
+    --red-darker: rgba(48, 0, 0, 1);
+    --green-lighter: rgba(222, 242, 222, 1);
+    --green-light: rgba(110, 210, 110, 1);
+    --green-contrast: rgba(175, 55, 175, 1);
+    --green-dark: rgba(0, 122, 0, 1);
+    --green-darker: rgba(0, 48, 0, 1);
+    --blue-lighter: rgba(222, 222, 242, 1);
+    --blue-light: rgba(110, 110, 210, 1);
+    --blue-contrast: rgba(175, 175, 55, 1);
+    --blue-dark: rgba(0, 0, 122, 1);
+    --blue-darker: rgba(0, 0, 48, 1);
+}
+
+.red {
+    --lighter: var(--red-lighter);
+    --light: var(--red-light);
+    --contrast: var(--red-contrast);
+    --dark: var(--red-dark);
+    --darker: var(--red-darker);
+}
+
+.green {
+    --lighter: var(--green-lighter);
+    --light: var(--green-light);
+    --contrast: var(--green-contrast);
+    --dark: var(--green-dark);
+    --darker: var(--green-darker);
+}
+
+.blue {
+    --lighter: var(--blue-lighter);
+    --light: var(--blue-light);
+    --contrast: var(--blue-contrast);
+    --dark: var(--blue-dark);
+    --darker: var(--blue-darker);
+}
+
+.light {
+    --first: var(--lighter);
+    --second: var(--light);
+    --third: var(--dark);
+    --fourth: var(--darker);
+}
+
+.dark {
+    --first: var(--darker);
+    --second: var(--dark);
+    --third: var(--light);
+    --fourth: var(--lighter);
+}
+
+#change-red-button {
+    position: fixed;
+    display: inline-block;    
+    top: 10px;
+    right: 100px;
+    z-index: 2;
+}
+
+#change-green-button {
+    position: fixed;
+    display: inline-block;    
+    top: 35px;
+    right: 100px;
+    z-index: 2;
+}
+
+#change-blue-button {
+    position: fixed;
+    display: inline-block;    
+    top: 60px;
+    right: 100px;
+    z-index: 2;
+}
+
+#test {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    display: inline-block;    
+    top: 10px;
+    right: 200px;
+    z-index: 2;
+    background-color: var(--second);
+}
+
+#change-mode-button {
+    position: fixed;
+    display: inline-block;    
+    top: 10px;
+    right: 300px;
+    z-index: 2;
+}
+
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    background-color: #021620;
-    overflow: scroll;        
+    background-color: var(--fourth);
+    overflow: scroll;
 }
 
 header {
@@ -18,7 +117,7 @@ header {
     left: 0;
     width: 100%;
     z-index: 1;
-    background-color: rgba(0, 56, 82, 0);
+    background-color: rgba(0, 0, 122, 1);
     box-shadow: none;
     backdrop-filter: none;
     display: flex;
