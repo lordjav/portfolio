@@ -480,7 +480,7 @@ a {
         display: none;
     }
     .project-container {
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
 }
 
