@@ -43,22 +43,23 @@ colorRed = ["rgb(242, 222, 222)", "rgb(210, 110, 110)", "rgb(55, 175, 175)", "rg
 // colorRedHex = ["#F2DEDE", "#D26E6E", "#1AC7C7", "#7A0000", "#400B0B"];
 colorGreen = ["rgb(222, 242, 222)", "rgb(110, 210, 110)", "rgb(175, 55, 175)", "rgb(0, 122, 0)", "rgb(0, 48, 0)"],
 // colorGreenHex = ["#B6F2DE", "#5AD2AA", "#DE244C", "#005238", "#022016"];
-colorBlue = ["rgb(222, 222, 242)", "rgb(110, 110, 210)", "rgb(175, 175, 55)", "rgb(0, 0, 122)", "rgb(0, 0, 48)"];
+colorBlue = ["rgb(222, 222, 242)", "rgb(110, 110, 210)", "rgb(175, 175, 55)", "rgb(0, 0, 122)", "rgb(0, 0, 48)"],
 // colorBlueHex = ["#B6DEF2", "#5AAAD2", "#C7C71A", "#003852", "#021620"];
-const colorArray = {'red': colorRed, 'green': colorGreen, 'blue': colorBlue};
-//console.log(localStorage.getItem('choosedColor'));
-var choosedColor;
-if (localStorage.getItem('choosedColor') != null) {
-    choosedColor = localStorage.getItem('choosedColor');
+colorGrey = ["rgb(222, 222, 222)", "rgb(150, 150, 150)", "rgb(0, 0, 0)", "rgb(90, 90, 90)", "rgb(48, 48, 48)"];
+const colorArray = {'red': colorRed, 'green': colorGreen, 'blue': colorBlue, 'grey': colorGrey};
+//console.log(localStorage.getItem('chosenColor'));
+var chosenColor;
+if (localStorage.getItem('chosenColor') != null) {
+    chosenColor = localStorage.getItem('chosenColor');
 } else {
-    choosedColor = 'blue';
+    chosenColor = 'blue';
 }
 
 var lightDarkMode;
-if (localStorage.getItem('lightDarkMode') == 'true') {
-        lightDarkMode = true;
+if (localStorage.getItem('lightDarkMode') == 'light') {
+        lightDarkMode = 'light';
 } else {
-    lightDarkMode = false;
+    lightDarkMode = 'dark';
 }
 
 window.addEventListener('resize', function() {
@@ -107,7 +108,7 @@ window.addEventListener('scroll', function() {
     
     if (scroller > 500) {
         S.innerHTML = ""; //Delete subtitle from header
-        changeNavbarColor(choosedColor); //Change navbar color
+        changeNavbarColor(chosenColor); //Change navbar color
         document.getElementById("space1").style.height = "0"; //Delete <space1>
         H.style.flexDirection = "row"; //Change aspect of header into navbar
         sectionsContainer.classList.remove('display-none'); //Show sections-container
@@ -127,22 +128,26 @@ window.addEventListener('scroll', function() {
 });
 
 //function for changing navbar color
-function changeNavbarColor(choosedColor) {
+function changeNavbarColor(chosenColor) {
     if (document.documentElement.scrollTop > 500) {
         var choosedNavbarColor;
-        switch (choosedColor) {
+        switch (chosenColor) {
             case 'blue':
-                choosedNavbarColor = lightDarkMode ? "rgb(90, 170, 210, 0.6)" : "rgba(0, 56, 82, 0.6)";                
+                choosedNavbarColor = lightDarkMode === 'light' ? "rgb(110, 110, 210, 0.6)" : "rgba(0, 0, 122, 0.6)";                
                 break;
             
             case 'green':
-                choosedNavbarColor = lightDarkMode ? "rgb(90, 210, 170, 0.6)" : "rgba(0, 82, 56, 0.6)";
+                choosedNavbarColor = lightDarkMode === 'light' ? "rgb(110, 210, 110, 0.6)" : "rgba(0, 122, 0, 0.6)";
                 break;
             
             case 'red':
-                choosedNavbarColor = lightDarkMode ? "rgb(210, 110, 110, 0.6)" : "rgba(122, 0, 0, 0.6)";
+                choosedNavbarColor = lightDarkMode === 'light' ? "rgb(210, 110, 110, 0.6)" : "rgba(122, 0, 0, 0.6)";
                 break;
-        }        
+
+            case 'grey':
+                choosedNavbarColor = lightDarkMode === 'light' ? "rgb(150, 150, 150, 0.6)" : "rgba(90, 90, 90, 0.6)";
+                break;
+        }
         H.style.backgroundColor = choosedNavbarColor;
         H.style.boxShadow = "0 10px 50px #001216";   
         H.style.backdropFilter = "blur(10px)";
@@ -154,37 +159,36 @@ function changeNavbarColor(choosedColor) {
 }
 
 //Switch dark/light mode
-function changeIconColor() {
+function changeIconColor(color) {
     icons = ['light-icon-path', 'dark-icon-path', 'color-icon-path'];
 
     for (let i = 0; i < icons.length; i++) {
-        document.getElementById(icons[i]).style.stroke = lightDarkMode ? colorArray[choosedColor][3] : colorArray[choosedColor][1];
-        document.getElementById(icons[i]).style.fill = lightDarkMode ? colorArray[choosedColor][3] : colorArray[choosedColor][1];
+        document.getElementById(icons[i]).style.stroke = lightDarkMode === 'light' ? colorArray[color][3] : colorArray[color][1];
+        document.getElementById(icons[i]).style.fill = lightDarkMode === 'light' ? colorArray[color][3] : colorArray[color][1];
     }
+    lightMode.style.display = lightDarkMode === "light" ? "none" : "inline-block";
+    darkMode.style.display = lightDarkMode === "dark" ? "none" : "inline-block";
 }
 
-function changeMode() {
+/*function changeModel() {
     lightDarkMode = !lightDarkMode;
     localStorage.setItem('lightDarkMode', lightDarkMode);
     lightMode.style.display = lightDarkMode ? "none" : "inline-block";
     darkMode.style.display = lightDarkMode ? "inline-block" : "none";
-    document.getElementById("body").style.backgroundColor = lightDarkMode ? colorArray[choosedColor][0] : colorArray[choosedColor][4];
-    N.style.color = lightDarkMode ? colorArray[choosedColor][3] : colorArray[choosedColor][1];
-    S.style.color = lightDarkMode ? colorArray[choosedColor][4] : colorArray[choosedColor][0]; 
-    changeNavbarColor(choosedColor);
+    document.getElementById("body").style.backgroundColor = lightDarkMode ? colorArray[chosenColor][0] : colorArray[chosenColor][4];
+    N.style.color = lightDarkMode ? colorArray[chosenColor][3] : colorArray[chosenColor][1];
+    S.style.color = lightDarkMode ? colorArray[chosenColor][4] : colorArray[chosenColor][0]; 
+    changeNavbarColor(chosenColor);
     document.querySelectorAll("p").forEach((element) => {
-        element.style.color = lightDarkMode ? colorArray[choosedColor][4] : colorArray[choosedColor][0];
+        element.style.color = lightDarkMode ? colorArray[chosenColor][4] : colorArray[chosenColor][0];
     })
     changeIconColor();    
-}
-
-lightMode.style.display = lightDarkMode ? "none" : "inline-block";
-darkMode.style.display = lightDarkMode ? "inline-block" : "none";
+}*/
 
 //Change theme
-function changeTheme (color) {
-    localStorage.setItem('choosedColor', color);
-    choosedColor = color;
+/*function changeTheme (color) {
+    localStorage.setItem('chosenColor', color);
+    chosenColor = color;
     changeNavbarColor(color);
     document.getElementById("body").style.backgroundColor = lightDarkMode ? colorArray[color][0] : colorArray[color][4];
     N.style.color = lightDarkMode ? colorArray[color][3] : colorArray[color][1];
@@ -196,12 +200,12 @@ function changeTheme (color) {
         element.style.color = colorArray[color][2];
     })
     changeIconColor();
-}
+}*/
 
-changeTheme(choosedColor);
+// changeTheme(chosenColor);
 
-N.addEventListener('mouseenter', () => {
-    switch (choosedColor) {
+/*N.addEventListener('mouseenter', () => {
+    switch (chosenColor) {
     case 'blue':
         N.style.textShadow = lightDarkMode ? "0 15px 40px #003852" : "0 15px 40px #5AAAD2";
 
@@ -221,10 +225,11 @@ N.addEventListener('mouseenter', () => {
 })
 N.addEventListener('mouseleave', () => {
     N.style.textShadow = "none";
-})
+})*/
 
 document.addEventListener('DOMContentLoaded', function() {
-   document.getElementById('body').style.visibility = 'visible'; 
+   document.getElementById('body').style.visibility = 'visible';
+   H.style.visibility = 'visible';
 });
 
 // Modal
@@ -262,14 +267,71 @@ window.onclick = function(event) {
 --
 */
 
-function changeColor(DOMElement, color) {
-    var colors = ['red', 'green', 'blue'];
-    colors.forEach((element) => {
-        DOMElement.classList.remove(element);
+var DOMElements = ['body', 'header', 'name', 'subtitle'];
+var DOMCollections = ['h3', 'h4', 'p', '.project-action'];
+
+DOMElements.forEach((element) => {
+    document.getElementById(element).classList.add(chosenColor);
+    document.getElementById(element).classList.add(lightDarkMode);
+});
+
+DOMCollections.forEach((name) => {
+    document.querySelectorAll(name).forEach((element) => {
+        element.classList.add(chosenColor);
+        element.classList.add(lightDarkMode);
     });
-    DOMElement.classList.add(color);
+});
+
+changeNavbarColor(chosenColor);
+changeIconColor(chosenColor);
+
+function changeColor(color) {
+    var colors = ['red', 'green', 'blue', 'grey'];
+    colors.forEach((element) => {
+        DOMElements.forEach((DOMElement) => {
+            document.getElementById(DOMElement).classList.remove(element);
+        });
+    });
+    DOMElements.forEach((DOMElement) => {
+        document.getElementById(DOMElement).classList.add(color);
+        if (lightDarkMode == 'light') {
+            document.getElementById(DOMElement).classList.add('light');
+            document.getElementById(DOMElement).classList.remove('dark');
+        } else {
+            document.getElementById(DOMElement).classList.add('dark');
+            document.getElementById(DOMElement).classList.remove('light');
+        }
+    });
+    DOMCollections.forEach((name) => {
+        document.querySelectorAll(name).forEach((element) => {
+            element.classList.remove('red');
+            element.classList.remove('green');
+            element.classList.remove('blue');
+            element.classList.remove('grey');
+            element.classList.add(color);
+        });
+    });
+    changeNavbarColor(color);
+    changeIconColor(color);
+    chosenColor = color;
+    localStorage.setItem('chosenColor', color);
 }
 
-document.getElementById('change-mode-button').addEventListener('click', () => {
-    document.getElementById('test').classList.toggle('light');
-});
+function changeMode() {
+    lightDarkMode = lightDarkMode == 'light' ? 'dark' : 'light';
+    lightMode.style.display = lightDarkMode === "light" ? "inline-block" : "none";
+    darkMode.style.display = lightDarkMode === "dark" ? "inline-block" : "none";
+    DOMElements.forEach((element) => {
+        document.getElementById(element).classList.toggle('light');
+        document.getElementById(element).classList.toggle('dark');
+    });
+    DOMCollections.forEach((name) => {
+        document.querySelectorAll(name).forEach((element) => {
+            element.classList.toggle('light');
+            element.classList.toggle('dark');
+        });
+    });
+    changeNavbarColor(chosenColor);
+    changeIconColor(chosenColor);
+    localStorage.setItem('lightDarkMode', lightDarkMode);
+};
