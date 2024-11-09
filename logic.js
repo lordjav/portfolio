@@ -40,14 +40,10 @@ contactNavbar = document.getElementById("Contact-navbar"),
 cert1 = document.getElementById("cert1"),
 initials = [J, M],
 colorRed = ["rgb(242, 222, 222)", "rgb(210, 110, 110)", "rgb(55, 175, 175)", "rgb(122, 0, 0)", "rgb(48, 0, 0)"],
-// colorRedHex = ["#F2DEDE", "#D26E6E", "#1AC7C7", "#7A0000", "#400B0B"];
 colorGreen = ["rgb(222, 242, 222)", "rgb(110, 210, 110)", "rgb(175, 55, 175)", "rgb(0, 122, 0)", "rgb(0, 48, 0)"],
-// colorGreenHex = ["#B6F2DE", "#5AD2AA", "#DE244C", "#005238", "#022016"];
 colorBlue = ["rgb(222, 222, 242)", "rgb(110, 110, 210)", "rgb(175, 175, 55)", "rgb(0, 0, 122)", "rgb(0, 0, 48)"],
-// colorBlueHex = ["#B6DEF2", "#5AAAD2", "#C7C71A", "#003852", "#021620"];
 colorGrey = ["rgb(222, 222, 222)", "rgb(150, 150, 150)", "rgb(0, 0, 0)", "rgb(90, 90, 90)", "rgb(48, 48, 48)"];
 const colorArray = {'red': colorRed, 'green': colorGreen, 'blue': colorBlue, 'grey': colorGrey};
-//console.log(localStorage.getItem('chosenColor'));
 var chosenColor;
 if (localStorage.getItem('chosenColor') != null) {
     chosenColor = localStorage.getItem('chosenColor');
@@ -170,63 +166,7 @@ function changeIconColor(color) {
     darkMode.style.display = lightDarkMode === "dark" ? "none" : "inline-block";
 }
 
-/*function changeModel() {
-    lightDarkMode = !lightDarkMode;
-    localStorage.setItem('lightDarkMode', lightDarkMode);
-    lightMode.style.display = lightDarkMode ? "none" : "inline-block";
-    darkMode.style.display = lightDarkMode ? "inline-block" : "none";
-    document.getElementById("body").style.backgroundColor = lightDarkMode ? colorArray[chosenColor][0] : colorArray[chosenColor][4];
-    N.style.color = lightDarkMode ? colorArray[chosenColor][3] : colorArray[chosenColor][1];
-    S.style.color = lightDarkMode ? colorArray[chosenColor][4] : colorArray[chosenColor][0]; 
-    changeNavbarColor(chosenColor);
-    document.querySelectorAll("p").forEach((element) => {
-        element.style.color = lightDarkMode ? colorArray[chosenColor][4] : colorArray[chosenColor][0];
-    })
-    changeIconColor();    
-}*/
-
-//Change theme
-/*function changeTheme (color) {
-    localStorage.setItem('chosenColor', color);
-    chosenColor = color;
-    changeNavbarColor(color);
-    document.getElementById("body").style.backgroundColor = lightDarkMode ? colorArray[color][0] : colorArray[color][4];
-    N.style.color = lightDarkMode ? colorArray[color][3] : colorArray[color][1];
-    S.style.color = lightDarkMode ? colorArray[color][4] : colorArray[color][0];
-    document.querySelectorAll("p").forEach((element) => {
-        element.style.color = lightDarkMode ? colorArray[color][4] : colorArray[color][0];
-    })
-    document.querySelectorAll("h3").forEach((element) => {
-        element.style.color = colorArray[color][2];
-    })
-    changeIconColor();
-}*/
-
-// changeTheme(chosenColor);
-
-/*N.addEventListener('mouseenter', () => {
-    switch (chosenColor) {
-    case 'blue':
-        N.style.textShadow = lightDarkMode ? "0 15px 40px #003852" : "0 15px 40px #5AAAD2";
-
-        break;
-    
-    case 'green':
-        N.style.textShadow = lightDarkMode ? "0 0px 50px #005238" : "0 0px 50px #5AD2AA";
-        break;
-    
-    case 'red':
-        N.style.textShadow = lightDarkMode ? "0 15px 40px #7A0000" : "0 15px 40px #D26E6E";
-        break;
-    
-    default:
-        N.style.textShadow = "0 15px 40px #595959";
-}
-})
-N.addEventListener('mouseleave', () => {
-    N.style.textShadow = "none";
-})*/
-
+//Show some elements only when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
    document.getElementById('body').style.visibility = 'visible';
    H.style.visibility = 'visible';
@@ -256,16 +196,6 @@ window.onclick = function(event) {
         });
     }
 }
-
-/*Pendientes por avanzar
---Agregar hover a los elementos.
---Arreglar el menú.
---Agregar filtro al fondo.
---Agregar animación con el puntero.
---Arreglar subtitulos h3 que no coinciden con el scroll en ventanas pequeñas.
---Agregar más colores a la lista de temas.
---
-*/
 
 var DOMElements = ['body', 'header', 'name', 'subtitle'];
 var DOMCollections = ['h3', 'h4', 'p', '.project-action'];
@@ -304,10 +234,9 @@ function changeColor(color) {
     });
     DOMCollections.forEach((name) => {
         document.querySelectorAll(name).forEach((element) => {
-            element.classList.remove('red');
-            element.classList.remove('green');
-            element.classList.remove('blue');
-            element.classList.remove('grey');
+            for (let i = 0; 0 < colors.length; i++) {
+                element.classList.remove(colors[i]);
+            }
             element.classList.add(color);
         });
     });
@@ -341,3 +270,9 @@ function copyEmail() {
     navigator.clipboard.writeText(email);
     document.getElementById('contact-text-copy').innerHTML = 'Copied';
 }
+
+/*Pendientes por avanzar
+--Arreglar el menú.
+--Agregar filtro grainy al fondo.
+--Agregar animación a iconos de technologies.
+*/

@@ -214,6 +214,10 @@ p {
     text-shadow: 0 15px 40px var(--third) !important;
 }
 
+.navbar-span {
+    transition: text-shadow, transform 300ms ease;
+}
+
 .navbar-span:hover {
     text-shadow: 
         10px 0 40px var(--fourth), 
@@ -222,7 +226,6 @@ p {
         -5px 0 35px var(--third), 
         -10px 0 40px var(--fourth) !important;
     transform: scale(1.05);
-    transition: text-shadow, transform 300ms ease;
 }
 
 #light-dark-mode {
@@ -423,7 +426,6 @@ p {
         0 -60px 30px var(--fourth), 
         0 -70px 40px var(--third), 
         0 -80px 35px var(--fourth) !important;
-
 }
 
 .svg-path {
@@ -488,8 +490,8 @@ p {
 }
 
 #modal-content img {
-    width: inherit;
-    height: inherit;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
 }
 
 a {
@@ -541,11 +543,13 @@ a {
 @media only screen and (orientation: landscape) {
     #modal-content {
         height: 90vh;
+        width: fit-content;
     }
 }
 
 @media only screen and (orientation: portrait) {
     #modal-content {
         width: 90vw;
+        height: fit-content;
     }
 }
