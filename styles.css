@@ -114,6 +114,14 @@ h4 {
     margin: 0 10px;
 }
 
+h5 {
+    color: var(--fourth) !important;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
 main {
     position: relative;
     max-width: 1000px;    
@@ -182,6 +190,7 @@ p {
     transition: text-shadow 500ms ease;
     width: fit-content;
     margin: 0 0;
+    user-select: none;
 }
 
 #name:hover {
@@ -332,12 +341,12 @@ p {
 }
 
 .options-container {
-    margin: auto;
     width: 80vw;
     max-width: 500px;
     display: flex;
+    align-items: center;
     justify-content: space-evenly;
-    margin: 40px 0;
+    margin: 40px auto;
 }
 
 .technology-icon:hover {
@@ -451,8 +460,6 @@ p {
     padding: 20px;
     margin: auto;
     border: 1px solid #888;
-    height: 90vh;
-    max-width: 1100px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -461,7 +468,7 @@ p {
 }
 
 #modal-content img {
-    width: 100%;
+    width: inherit;
     height: inherit;
 }
 
@@ -474,6 +481,24 @@ a {
     transition: display 300ms ease;
 }
 
+#contact-options {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.contact-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-svg {
+    fill: var(--third) !important;
+}
+
+.contact-text {
+    margin: 0;
+}
 
 @media only screen and (min-width: 0) {
     #sections-container {
@@ -490,5 +515,17 @@ a {
     }
     .project-container {
         flex-direction: row;
+    }
+}
+
+@media only screen and (orientation: landscape) {
+    #modal-content {
+        height: 90vh;
+    }
+}
+
+@media only screen and (orientation: portrait) {
+    #modal-content {
+        width: 90vw;
     }
 }
