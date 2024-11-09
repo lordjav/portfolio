@@ -387,7 +387,11 @@ p {
     transition: text-shadow 200ms ease;
 }
 
-.project-action:hover {
+.contact-option {
+    transition: transform 300ms ease;
+}
+
+.project-action:hover, .contact-option:hover {
     transform: scale(1.05);
 }
 
@@ -404,6 +408,22 @@ p {
         -60px 0 30px var(--fourth), 
         -70px 0 40px var(--third), 
         -80px 0 35px var(--fourth) !important;
+}
+
+.contact-option:hover > .contact-text {
+    text-shadow: 
+        0 20px 40px var(--fourth), 
+        0 10px 35px var(--third), 
+        0 0 30px var(--fourth), 
+        0 -10px 40px var(--third), 
+        0 -20px 35px var(--fourth), 
+        0 -30px 30px var(--third), 
+        0 -40px 40px var(--fourth), 
+        0 -50px 35px var(--third), 
+        0 -60px 30px var(--fourth), 
+        0 -70px 40px var(--third), 
+        0 -80px 35px var(--fourth) !important;
+
 }
 
 .svg-path {

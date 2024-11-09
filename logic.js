@@ -335,3 +335,9 @@ function changeMode() {
     changeIconColor(chosenColor);
     localStorage.setItem('lightDarkMode', lightDarkMode);
 };
+
+function copyEmail() {
+    const email = 'javiermezadev@gmail.com';
+    navigator.clipboard.writeText(email);
+    document.getElementById('contact-text-copy').innerHTML = 'Copied';
+}
