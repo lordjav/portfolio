@@ -522,6 +522,110 @@ a {
     margin: 0;
 }
 
+.color-lighter {
+    fill: var(--lighter) !important;
+    stop-color: var(--lighter) !important;
+}
+
+.color-light {
+    fill: var(--light) !important;
+    stop-color: var(--light) !important;
+}
+
+.color-dark {
+    fill: var(--dark) !important;
+    stop-color: var(--dark) !important;
+}
+
+.color-darker {
+    fill: var(--darker) !important;
+    stop-color: var(--darker) !important;
+}
+
+.css-icon:hover .css3-lighter {
+    fill: #fff !important;
+    transition: fill 300ms ease;
+}
+
+.css-icon:hover .css3-light {
+    fill: #33a9dc !important;
+    transition: fill 300ms ease;
+}
+
+.css-icon:hover .css3-dark {
+    fill: #1572b6 !important;
+    transition: fill 300ms ease;
+}
+
+.html-icon:hover .html-lighter {
+    fill: #fff !important;
+    transition: fill 300ms ease;
+}
+
+.html-icon:hover .html-light {
+    fill: #f16529 !important;
+    transition: fill 300ms ease;
+}
+
+.html-icon:hover .html-dark {
+    fill: #e44d26 !important;
+    transition: fill 300ms ease;
+}
+
+.javascript-icon:hover .javascript-light {
+    fill: #f0db4f !important;
+    transition: fill 300ms ease;
+}
+
+.javascript-icon:hover .javascript-darker {
+    fill: #323330 !important;
+    transition: fill 300ms ease;
+}
+
+.python-icon:hover .python-lighter {
+    stop-color: #ffe873 !important;
+    transition: stop-color 300ms ease;
+}
+
+.python-icon:hover .python-light {
+    stop-color: #ffd43b !important;
+    transition: stop-color 300ms ease;
+}
+
+.python-icon:hover .python-dark {
+    stop-color: #5a9fd4 !important;
+    transition: stop-color 300ms ease;
+}
+
+.python-icon:hover .python-darker {
+    stop-color: #306998 !important;
+    transition: stop-color 300ms ease;
+}
+
+.sqlite-icon:hover .sqlite-lighter {
+    fill: #95d7f4 !important;
+    stop-color: #95d7f4 !important;
+    transition: fill, stop-color 300ms ease;
+}
+
+.sqlite-icon:hover .sqlite-light {
+    fill: #0f7fcc !important;
+    stop-color: #0f7fcc !important;
+    transition: fill, stop-color 300ms ease;
+}
+
+.sqlite-icon:hover .sqlite-dark {
+    fill: #003956 !important;
+    stop-color: #003956 !important;
+    transition: fill, stop-color 300ms ease;
+}
+
+.sqlite-icon:hover .sqlite-darker {
+    fill: #003956 !important;
+    stop-color: #003956 !important;
+    transition: fill, stop-color 300ms ease;
+}
+
 @media only screen and (min-width: 0) {
     #sections-container {
         display: none;

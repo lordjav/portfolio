@@ -66,7 +66,7 @@ window.addEventListener('resize', function() {
 
 window.addEventListener('scroll', function() {
     const scroller = document.documentElement.scrollTop;
-    document.getElementById("scrollmeter").innerHTML = scroller.toFixed();
+    //document.getElementById("scrollmeter").innerHTML = scroller.toFixed();
   
     //Reduce initial's font size on scroll        
     initials.forEach((letter) => {
@@ -234,7 +234,7 @@ function changeColor(color) {
     });
     DOMCollections.forEach((name) => {
         document.querySelectorAll(name).forEach((element) => {
-            for (let i = 0; 0 < colors.length; i++) {
+            for (let i = 0; i < colors.length; i++) {
                 element.classList.remove(colors[i]);
             }
             element.classList.add(color);
