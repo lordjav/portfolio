@@ -93,12 +93,11 @@ header {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    transition: box-shadow, background-color, 500ms ease;
+    transition: box-shadow 300ms ease, background-color 500ms ease;
 }
 
 h3 {
     color: var(--contrast) !important;
-    font-family: "Open Sans", sans-serif;
     text-align: center;
     font-size: 2rem;
     font-weight: 500;
@@ -107,7 +106,6 @@ h3 {
 
 h4 {
     color: var(--third) !important;
-    font-family: "Open Sans", sans-serif;
     text-align: center;
     font-size: 1.5rem;
     font-weight: 500;
@@ -116,7 +114,6 @@ h4 {
 
 h5 {
     color: var(--fourth) !important;
-    font-family: "Open Sans", sans-serif;
     text-align: center;
     font-size: 1.8rem;
     font-weight: 400;
@@ -215,7 +212,7 @@ p {
 }
 
 .navbar-span {
-    transition: text-shadow, transform 300ms ease;
+    transition: text-shadow 300ms ease, transform 300ms ease;
 }
 
 .navbar-span:hover {
@@ -361,7 +358,7 @@ p {
     padding: calc(100vw / 45);
     margin: auto;
     display: flex;
-    transition: box-shadow, transform 300ms ease;
+    transition: box-shadow 300ms ease, transform 300ms ease;
     border-radius: 20px;
 }
 
@@ -382,7 +379,7 @@ p {
     padding: 10px;
     text-align: center;
     background-color: var(--first) !important;
-    transition: box-shadow, transform 300ms ease;
+    transition: transform 300ms ease;
 }
 
 .project-action > * {
@@ -605,25 +602,25 @@ a {
 .sqlite-icon:hover .sqlite-lighter {
     fill: #95d7f4 !important;
     stop-color: #95d7f4 !important;
-    transition: fill, stop-color 300ms ease;
+    transition: fill 300ms ease, stop-color 300ms ease;
 }
 
 .sqlite-icon:hover .sqlite-light {
     fill: #0f7fcc !important;
     stop-color: #0f7fcc !important;
-    transition: fill, stop-color 300ms ease;
+    transition: fill 300ms ease, stop-color 300ms ease;
 }
 
 .sqlite-icon:hover .sqlite-dark {
     fill: #003956 !important;
     stop-color: #003956 !important;
-    transition: fill, stop-color 300ms ease;
+    transition: fill 300ms ease, stop-color 300ms ease;
 }
 
 .sqlite-icon:hover .sqlite-darker {
     fill: #003956 !important;
     stop-color: #003956 !important;
-    transition: fill, stop-color 300ms ease;
+    transition: fill 300ms ease, stop-color 300ms ease;
 }
 
 @media only screen and (min-width: 0) {

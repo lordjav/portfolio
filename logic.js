@@ -103,7 +103,7 @@ window.addEventListener('scroll', function() {
     document.getElementById("space1").style.height = (sp1Height * (1 - scroller / 500)).toFixed() + "px";
     
     if (scroller > 500) {
-        S.innerHTML = ""; //Delete subtitle from header
+        S.style.display = "none"; //Delete subtitle from header
         changeNavbarColor(chosenColor); //Change navbar color
         document.getElementById("space1").style.height = "0"; //Delete <space1>
         H.style.flexDirection = "row"; //Change aspect of header into navbar
@@ -113,7 +113,7 @@ window.addEventListener('scroll', function() {
         nameContainer.style.margin = "0"; //Fix name's margin
         space4.style.display = "inline-block";
     } else {
-        S.innerHTML = "Software development";
+        S.style.display = "block";
         H.style.flexDirection = "column";
         sectionsContainer.classList.add('display-none');
         H.style.backgroundColor = "initial";
@@ -265,14 +265,40 @@ function changeMode() {
     localStorage.setItem('lightDarkMode', lightDarkMode);
 };
 
+const copyText = document.getElementById('contact-text-copy');
 function copyEmail() {
     const email = 'javiermezadev@gmail.com';
     navigator.clipboard.writeText(email);
-    document.getElementById('contact-text-copy').innerHTML = 'Copied';
+    if (navigator.language == 'es') {
+        copyText.innerHTML = 'Copiado';
+    } else {
+        copyText.innerHTML = 'Copied';
+    }
 }
 
+function changeLanguage() {
+    englishText = document.querySelectorAll('.english');
+    spanishText = document.querySelectorAll('.spanish');
+    if (navigator.language == 'es') {
+        englishText.forEach(element => {
+            element.style.display = 'none';
+        })
+        spanishText.forEach(element => {
+            element.style.display = 'block';
+        })
+    } else {
+        spanishText.forEach(element => {
+            element.style.display = 'none';
+        })
+        englishText.forEach(element => {         
+            element.style.display = 'block';
+        })
+    }
+}
+changeLanguage();
+
 /*Pendientes por avanzar
---Arreglar el menú.
 --Agregar filtro grainy al fondo.
---Agregar animación a iconos de technologies.
+--Agregar botón de lenguaje.
+--Agregar cambio de color al botón en hover o active.
 */
