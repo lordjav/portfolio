@@ -382,7 +382,7 @@ p {
     transition: transform 300ms ease;
 }
 
-.project-action > * {
+.project-action > *, .contact-option > * {
     display: inline-block;
     transition: text-shadow 200ms ease;
 }
