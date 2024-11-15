@@ -4,17 +4,17 @@
 }
 
 :root {
-    --red-lighter: rgba(242, 222, 222, 1);
+    --red-lighter: rgb(250, 212, 212, 1);
     --red-light: rgba(210, 110, 110, 1);
     --red-contrast: rgba(55, 175, 175, 1);
     --red-dark: rgba(122, 0, 0, 1);
     --red-darker: rgba(48, 0, 0, 1);
-    --green-lighter: rgba(222, 242, 222, 1);
+    --green-lighter: rgba(212, 250, 212, 1);
     --green-light: rgba(110, 210, 110, 1);
     --green-contrast: rgba(175, 55, 175, 1);
     --green-dark: rgba(0, 122, 0, 1);
     --green-darker: rgba(0, 48, 0, 1);
-    --blue-lighter: rgba(222, 222, 242, 1);
+    --blue-lighter: rgba(212, 212, 250, 1);
     --blue-light: rgba(110, 110, 210, 1);
     --blue-contrast: rgba(175, 175, 55, 1);
     --blue-dark: rgba(0, 0, 122, 1);
@@ -225,11 +225,33 @@ p {
     transform: scale(1.05);
 }
 
-#light-dark-mode {
+#tools-icon {
     position: fixed;
-    display: inline-block;    
-    top: 10px;
-    right: 12px;
+    top: 20px;
+    right: 20px;
+}
+
+#tools {
+    display: none;
+    z-index: 3;
+}
+
+.tools-visible {
+    display: flex !important;
+    position: fixed;
+    width: 45px;
+    height: 100px;
+    top: 70px;
+    right: 20px;
+    flex-direction: column;
+}
+
+.tools-icon-path {
+    fill: var(--lighter) !important;
+    stroke: var(--dark) !important;
+}
+
+#light-dark-mode {
     z-index: 2;
 }
 
@@ -239,10 +261,6 @@ p {
 }
 
 #change-theme {
-    position: fixed;
-    display: inline-block;    
-    top: 60px;
-    right: 10px;
     z-index: 2;
 }
 

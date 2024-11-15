@@ -86,7 +86,7 @@ window.addEventListener('scroll', function() {
     if (scroller > 500) {}
     
     //Reduce name's line-height on scroll
-    N.style.lineHeight = (138 - (scroller / 6.2)).toFixed() + "%";
+    N.style.lineHeight = (138 - (scroller / 4.7)).toFixed() + "%";
     if (scroller > 500) {}
 
     //Reduce name-container width on scroll
@@ -109,7 +109,7 @@ window.addEventListener('scroll', function() {
         H.style.flexDirection = "row"; //Change aspect of header into navbar
         sectionsContainer.classList.remove('display-none'); //Show sections-container
         nameContainer.style.width = "140px"; //Fix name-container width 
-        N.style.lineHeight = "58%"; //Fix name's line-height
+        N.style.lineHeight = "31%"; //Fix name's line-height
         nameContainer.style.margin = "0"; //Fix name's margin
         space4.style.display = "inline-block";
     } else {
@@ -154,9 +154,15 @@ function changeNavbarColor(chosenColor) {
     }
 }
 
+// Show/hide tools
+function tools() {
+    let tools = document.getElementById('tools');
+    tools.classList.toggle('tools-visible');
+}
+
 //Switch dark/light mode
 function changeIconColor(color) {
-    icons = ['light-icon-path', 'dark-icon-path', 'color-icon-path'];
+    icons = ['light-icon-path', 'dark-icon-path', 'color-icon-path', 'tools-icon-path'];
 
     for (let i = 0; i < icons.length; i++) {
         document.getElementById(icons[i]).style.stroke = lightDarkMode === 'light' ? colorArray[color][3] : colorArray[color][1];
