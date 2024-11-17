@@ -210,6 +210,7 @@ window.addEventListener('click', function(event) {
     }
 });
 
+// Set color and mode
 var DOMElements = ['body', 'header', 'name', 'subtitle'];
 var DOMCollections = ['h3', 'h4', 'p', '.project-action'];
 

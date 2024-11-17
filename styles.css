@@ -217,11 +217,11 @@ p {
 
 .navbar-span:hover {
     text-shadow: 
-        10px 0 40px var(--fourth), 
-        5px 0 35px var(--third), 
-        0 0 40px var(--fourth), 
-        -5px 0 35px var(--third), 
-        -10px 0 40px var(--fourth) !important;
+        10px 0 30px var(--fourth), 
+        5px 0 25px var(--third), 
+        0 0 30px var(--fourth), 
+        -5px 0 25px var(--third), 
+        -10px 0 30px var(--fourth) !important;
     transform: scale(1.05);
 }
 
