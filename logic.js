@@ -205,6 +205,9 @@ window.addEventListener('click', function(event) {
             }
         });
     }
+    if (!toolIcon.contains(event.target) && tools.classList.contains('tools-visible')) {
+        showTools();
+    }
 });
 
 var DOMElements = ['body', 'header', 'name', 'subtitle'];
@@ -225,6 +228,7 @@ DOMCollections.forEach((name) => {
 changeNavbarColor(chosenColor);
 changeIconColor(chosenColor);
 
+// Change color
 function changeColor(color) {
     var colors = ['red', 'green', 'blue', 'grey'];
     colors.forEach((element) => {
@@ -256,6 +260,7 @@ function changeColor(color) {
     localStorage.setItem('chosenColor', color);
 }
 
+// Switch light/dark mode
 function changeMode() {
     lightDarkMode = lightDarkMode == 'light' ? 'dark' : 'light';
     lightMode.style.display = lightDarkMode === "light" ? "inline-block" : "none";
@@ -275,6 +280,7 @@ function changeMode() {
     localStorage.setItem('lightDarkMode', lightDarkMode);
 };
 
+// Copy email
 const copyText = document.getElementById('contact-text-copy');
 function copyEmail() {
     const email = 'javiermezadev@gmail.com';
@@ -286,6 +292,7 @@ function copyEmail() {
     }
 }
 
+// Language
 englishText = document.querySelectorAll('.english');
 spanishText = document.querySelectorAll('.spanish');
 var language;
