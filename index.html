@@ -22,7 +22,7 @@
 <body id="body" style="visibility:hidden;">
   <header id="header"  style="visibility:hidden;">
     <div class="space" id="space1"></div>
-    <svg id="tools-icon" onclick="tools()" xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em" viewBox="0 0 24 24"><g id="tools-icon-path" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3.269C14 2.568 13.432 2 12.731 2H11.27C10.568 2 10 2.568 10 3.269c0 .578-.396 1.074-.935 1.286q-.128.052-.253.106c-.531.23-1.162.16-1.572-.249a1.27 1.27 0 0 0-1.794 0L4.412 5.446a1.27 1.27 0 0 0 0 1.794c.41.41.48 1.04.248 1.572a8 8 0 0 0-.105.253c-.212.539-.708.935-1.286.935C2.568 10 2 10.568 2 11.269v1.462C2 13.432 2.568 14 3.269 14c.578 0 1.074.396 1.286.935q.052.128.105.253c.231.531.161 1.162-.248 1.572a1.27 1.27 0 0 0 0 1.794l1.034 1.034a1.27 1.27 0 0 0 1.794 0c.41-.41 1.04-.48 1.572-.249q.125.055.253.106c.539.212.935.708.935 1.286c0 .701.568 1.269 1.269 1.269h1.462c.701 0 1.269-.568 1.269-1.269c0-.578.396-1.074.935-1.287q.128-.05.253-.104c.531-.232 1.162-.161 1.571.248a1.27 1.27 0 0 0 1.795 0l1.034-1.034a1.27 1.27 0 0 0 0-1.794c-.41-.41-.48-1.04-.249-1.572q.055-.125.106-.253c.212-.539.708-.935 1.286-.935c.701 0 1.269-.568 1.269-1.269V11.27c0-.701-.568-1.269-1.269-1.269c-.578 0-1.074-.396-1.287-.935a8 8 0 0 0-.105-.253c-.23-.531-.16-1.162.249-1.572a1.27 1.27 0 0 0 0-1.794l-1.034-1.034a1.27 1.27 0 0 0-1.794 0c-.41.41-1.04.48-1.572.249a8 8 0 0 0-.253-.106C14.396 4.343 14 3.847 14 3.27Z"/><path d="M16 12a4 4 0 1 1-8 0a4 4 0 0 1 8 0Z"/></g></svg>
+    <svg class="tools-icon" id="tools-icon" xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em" viewBox="0 0 24 24"><g id="tools-icon-path" class="tools-icon" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3.269C14 2.568 13.432 2 12.731 2H11.27C10.568 2 10 2.568 10 3.269c0 .578-.396 1.074-.935 1.286q-.128.052-.253.106c-.531.23-1.162.16-1.572-.249a1.27 1.27 0 0 0-1.794 0L4.412 5.446a1.27 1.27 0 0 0 0 1.794c.41.41.48 1.04.248 1.572a8 8 0 0 0-.105.253c-.212.539-.708.935-1.286.935C2.568 10 2 10.568 2 11.269v1.462C2 13.432 2.568 14 3.269 14c.578 0 1.074.396 1.286.935q.052.128.105.253c.231.531.161 1.162-.248 1.572a1.27 1.27 0 0 0 0 1.794l1.034 1.034a1.27 1.27 0 0 0 1.794 0c.41-.41 1.04-.48 1.572-.249q.125.055.253.106c.539.212.935.708.935 1.286c0 .701.568 1.269 1.269 1.269h1.462c.701 0 1.269-.568 1.269-1.269c0-.578.396-1.074.935-1.287q.128-.05.253-.104c.531-.232 1.162-.161 1.571.248a1.27 1.27 0 0 0 1.795 0l1.034-1.034a1.27 1.27 0 0 0 0-1.794c-.41-.41-.48-1.04-.249-1.572q.055-.125.106-.253c.212-.539.708-.935 1.286-.935c.701 0 1.269-.568 1.269-1.269V11.27c0-.701-.568-1.269-1.269-1.269c-.578 0-1.074-.396-1.287-.935a8 8 0 0 0-.105-.253c-.23-.531-.16-1.162.249-1.572a1.27 1.27 0 0 0 0-1.794l-1.034-1.034a1.27 1.27 0 0 0-1.794 0c-.41.41-1.04.48-1.572.249a8 8 0 0 0-.253-.106C14.396 4.343 14 3.847 14 3.27Z"/><path d="M16 12a4 4 0 1 1-8 0a4 4 0 0 1 8 0Z"/></g></svg>
     <div id="tools">
       <span id="light-dark-mode">
         <svg id="light-icon" onclick="changeMode()" xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em" viewBox="0 0 24 24"><path id="light-icon-path" fill="#5AAAD2" stroke="#5AAAD2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4V2m0 18v2M6.414 6.414L5 5m12.728 12.728l1.414 1.414M4 12H2m18 0h2m-4.271-5.586L19.143 5M6.415 17.728L5 19.142M12 17a5 5 0 1 1 0-10a5 5 0 0 1 0 10" />Sorry, your browser does not support inline SVG.</svg>
@@ -37,6 +37,7 @@
           <svg class="color-theme" id="red-theme" onclick="changeColor('red')" xmlns="http://www.w3.org/2000/svg" width="2.2em" height="2.2em" viewBox="0 0 24 24"><g id="red-theme-icon-g" fill="none"><circle id="red-theme-icon-circle" cx="12" cy="12" r="9" stroke="white" stroke-width="2"/><path id="red-theme-icon-path" fill="white" d="M18.364 5.636A9 9 0 0 0 5.636 18.364L12 12z"/></g></svg>
         </span>
       </span>
+      <svg id="lang-icon" onclick="changeLanguage()" xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em" viewBox="0 0 24 24"><path id="lang-icon-path" fill="black" d="m12.87 15.07l-2.54-2.51l.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35C8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5l3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7l1.62-4.33L19.12 17z"/></svg>
     </div>
     <!-- <span id="scrollmeter">0</span> -->
     <section id="name-container" onclick="document.documentElement.scrollTop = 0;">
@@ -47,7 +48,7 @@
     <div class="display-none" id="sections-container">
       <a href="#projects"><section class="navbar-span" id="span1"><h3 class="sections-navbar" id="Projects-navbar"><span class="english">Projects</span><span class="spanish">Proyectos</span></h3></section></a>
       <a href="#certificates"><section class="navbar-span" id="span2"><h3 class="sections-navbar" id="Certificates-navbar"><span class="english">Certificates</span><span class="spanish">Certificados</span></h3></section></a>
-      <a href="#about-me"><section class="navbar-span" id="span3"><h3 class="sections-navbar" id="Aboutme-navbar"><span class="english">About me</span><span class="spanish">Acerca de mi</span></h3></section></a>
+      <a href="#about-me"><section class="navbar-span" id="span3"><h3 class="sections-navbar" id="Aboutme-navbar"><span class="english">About me</span><span class="spanish">Acerca de mí</span></h3></section></a>
       <a href="#contact"><section class="navbar-span" id="span4"><h3 class="sections-navbar" id="Contact-navbar"><span class="english">Contact</span><span class="spanish">Contacto</span></h3></section></a>
     </div>
     <div id="space4"></div>
@@ -95,7 +96,7 @@
     </article>
     <article id="about-me">
       <div style="height: 120px;"></div>
-      <h3 id="abount-me-title"><span class="english">About me</span><span class="spanish">Acerca de mi</span></h3>
+      <h3 id="abount-me-title"><span class="english">About me</span><span class="spanish">Acerca de mí</span></h3>
       <p><span class="english">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in fringilla nibh. Phasellus dictum commodo
         aliquam.
         Praesent sed pharetra justo, elementum dapibus elit. Mauris et efficitur lectus. Mauris sodales ipsum dolor, eu

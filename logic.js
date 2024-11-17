@@ -38,10 +38,12 @@ certificationsNavbar = document.getElementById("Certifications-navbar"),
 aboutMeNavbar = document.getElementById("Aboutme-navbar"),
 contactNavbar = document.getElementById("Contact-navbar"),
 cert1 = document.getElementById("cert1"),
+tools = document.getElementById('tools'),
+toolIcon = document.getElementById('tools-icon'),
 initials = [J, M],
-colorRed = ["rgb(242, 222, 222)", "rgb(210, 110, 110)", "rgb(55, 175, 175)", "rgb(122, 0, 0)", "rgb(48, 0, 0)"],
-colorGreen = ["rgb(222, 242, 222)", "rgb(110, 210, 110)", "rgb(175, 55, 175)", "rgb(0, 122, 0)", "rgb(0, 48, 0)"],
-colorBlue = ["rgb(222, 222, 242)", "rgb(110, 110, 210)", "rgb(175, 175, 55)", "rgb(0, 0, 122)", "rgb(0, 0, 48)"],
+colorRed = ["rgb(250, 212, 212)", "rgb(210, 110, 110)", "rgb(55, 175, 175)", "rgb(122, 0, 0)", "rgb(48, 0, 0)"],
+colorGreen = ["rgb(212, 250, 212)", "rgb(110, 210, 110)", "rgb(175, 55, 175)", "rgb(0, 122, 0)", "rgb(0, 48, 0)"],
+colorBlue = ["rgb(212, 212, 250)", "rgb(110, 110, 210)", "rgb(175, 175, 55)", "rgb(0, 0, 122)", "rgb(0, 0, 48)"],
 colorGrey = ["rgb(222, 222, 222)", "rgb(150, 150, 150)", "rgb(0, 0, 0)", "rgb(90, 90, 90)", "rgb(48, 48, 48)"];
 const colorArray = {'red': colorRed, 'green': colorGreen, 'blue': colorBlue, 'grey': colorGrey};
 var chosenColor;
@@ -155,18 +157,20 @@ function changeNavbarColor(chosenColor) {
 }
 
 // Show/hide tools
-function tools() {
-    let tools = document.getElementById('tools');
+function showTools() {
     tools.classList.toggle('tools-visible');
+    document.getElementById('tools-icon').classList.toggle('tools-icon-animation');
 }
+
+toolIcon.addEventListener('click', showTools);
 
 //Switch dark/light mode
 function changeIconColor(color) {
-    icons = ['light-icon-path', 'dark-icon-path', 'color-icon-path', 'tools-icon-path'];
+    icons = ['light-icon-path', 'dark-icon-path', 'color-icon-path', 'tools-icon-path', 'lang-icon-path'];
 
     for (let i = 0; i < icons.length; i++) {
         document.getElementById(icons[i]).style.stroke = lightDarkMode === 'light' ? colorArray[color][3] : colorArray[color][1];
-        document.getElementById(icons[i]).style.fill = lightDarkMode === 'light' ? colorArray[color][3] : colorArray[color][1];
+        document.getElementById(icons[i]).style.fill = lightDarkMode === 'light' ? colorArray[color][1] : colorArray[color][3];
     }
     lightMode.style.display = lightDarkMode === "light" ? "none" : "inline-block";
     darkMode.style.display = lightDarkMode === "dark" ? "none" : "inline-block";
@@ -191,7 +195,7 @@ function closeModal(id) {
     modal.classList.remove('show');
     modal.classList.add('hide');
 }
-window.onclick = function(event) {
+window.addEventListener('click', function(event) {
     if (event.target.id == "modal") {
         modal.classList.remove('show');
         modal.classList.add('hide');
@@ -201,7 +205,7 @@ window.onclick = function(event) {
             }
         });
     }
-}
+});
 
 var DOMElements = ['body', 'header', 'name', 'subtitle'];
 var DOMCollections = ['h3', 'h4', 'p', '.project-action'];
@@ -282,10 +286,12 @@ function copyEmail() {
     }
 }
 
-function changeLanguage() {
-    englishText = document.querySelectorAll('.english');
-    spanishText = document.querySelectorAll('.spanish');
-    if (navigator.language == 'es') {
+englishText = document.querySelectorAll('.english');
+spanishText = document.querySelectorAll('.spanish');
+var language;
+
+function setLanguage() {
+    if (language == 'es') {
         englishText.forEach(element => {
             element.style.display = 'none';
         })
@@ -300,11 +306,22 @@ function changeLanguage() {
             element.style.display = 'block';
         })
     }
+    localStorage.setItem('language', language);
 }
-changeLanguage();
+
+function changeLanguage() {
+    language = language == 'es' ? 'en' : 'es';
+    setLanguage();
+}
+
+if (localStorage.getItem('language') != null) {
+    language = localStorage.getItem('language');
+} else {
+    language = navigator.language;
+}
+setLanguage();
 
 /*Pendientes por avanzar
 --Agregar filtro grainy al fondo.
---Agregar botón de lenguaje.
 --Agregar cambio de color al botón en hover o active.
 */
