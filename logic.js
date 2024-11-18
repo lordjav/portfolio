@@ -93,7 +93,7 @@ window.addEventListener('scroll', function() {
 
     //Reduce name-container width on scroll
     nameWidth = adjustStyle("header", "width");
-    nameContainer.style.width = (nameWidth - ((nameWidth - 140) / 500 * scroller)).toFixed() + "px";
+    nameContainer.style.width = (nameWidth - ((nameWidth - 120) / 500 * scroller)).toFixed() + "px";
     if (scroller > 500) {}
     
     //Subtitle and letters: "avier" and "eza" fade out on scroll
@@ -110,7 +110,7 @@ window.addEventListener('scroll', function() {
         document.getElementById("space1").style.height = "0"; //Delete <space1>
         H.style.flexDirection = "row"; //Change aspect of header into navbar
         sectionsContainer.classList.remove('display-none'); //Show sections-container
-        nameContainer.style.width = "140px"; //Fix name-container width 
+        nameContainer.style.width = "120px"; //Fix name-container width 
         N.style.lineHeight = "31%"; //Fix name's line-height
         nameContainer.style.margin = "0"; //Fix name's margin
         space4.style.display = "inline-block";

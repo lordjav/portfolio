@@ -404,11 +404,18 @@ p {
     border-radius: 20px;
 }
 
-#trackolus-image {
-    width: 80vw;
-    max-width: 450px;
+#trackolus-image, #profile-photo {
+    width: 80vw;    
     margin: calc(100vw / 45);
     padding: unset;
+}
+
+#trackolus-image {
+    max-width: 450px;
+}
+
+#profile-photo {
+    max-width: 300px;
 }
 
 .project-action {
@@ -561,6 +568,11 @@ a {
     margin: 0;
 }
 
+#about-me-info {
+    display: flex;
+    align-items: center;
+}
+
 .color-lighter {
     fill: var(--lighter) !important;
     stop-color: var(--lighter) !important;
@@ -672,6 +684,9 @@ a {
     .project-container {
         flex-direction: column-reverse;
     }
+    #about-me-info {
+        flex-direction: column;
+    }
 }
 
 @media only screen and (min-width: 992px) {
@@ -679,6 +694,9 @@ a {
         display: flex;
     }
     .project-container {
+        flex-direction: row;
+    }
+    #about-me-info {
         flex-direction: row;
     }
 }
