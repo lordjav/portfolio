@@ -205,7 +205,7 @@ window.addEventListener('click', function(event) {
             }
         });
     }
-    if (!toolIcon.contains(event.target) && tools.classList.contains('tools-visible')) {
+    if ((!toolIcon.contains(event.target) && !tools.contains(event.target)) && tools.classList.contains('tools-visible')) {
         showTools();
     }
 });
