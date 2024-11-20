@@ -176,12 +176,6 @@ function changeIconColor(color) {
     darkMode.style.display = lightDarkMode === "dark" ? "none" : "inline-block";
 }
 
-//Show some elements only when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-   document.getElementById('body').style.visibility = 'visible';
-   H.style.visibility = 'visible';
-});
-
 // Modal
 function showModal(id) {
     let modal = document.getElementById(id);
@@ -329,6 +323,11 @@ if (localStorage.getItem('language') != null) {
 }
 setLanguage();
 
+//Show some elements only when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    H.style.display = 'flex';
+ });
+  
 /*Pendientes por avanzar
 --Agregar filtro grainy al fondo.
 --Agregar cambio de color al botón en hover o active.
