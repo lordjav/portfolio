@@ -41,9 +41,9 @@ cert1 = document.getElementById("cert1"),
 tools = document.getElementById('tools'),
 toolIcon = document.getElementById('tools-icon'),
 initials = [J, M],
-colorRed = ["rgb(250, 212, 212)", "rgb(210, 110, 110)", "rgb(55, 175, 175)", "rgb(122, 0, 0)", "rgb(48, 0, 0)"],
-colorGreen = ["rgb(212, 250, 212)", "rgb(110, 210, 110)", "rgb(175, 55, 175)", "rgb(0, 122, 0)", "rgb(0, 48, 0)"],
-colorBlue = ["rgb(212, 212, 250)", "rgb(110, 110, 210)", "rgb(175, 175, 55)", "rgb(0, 0, 122)", "rgb(0, 0, 48)"],
+colorRed = ["rgb(250, 212, 212)", "rgb(210, 110, 110)", "rgb(48, 122, 122)", "rgb(122, 0, 0)", "rgb(48, 0, 0)"],
+colorGreen = ["rgb(212, 250, 212)", "rgb(110, 210, 110)", "rgb(122, 48, 122)", "rgb(0, 122, 0)", "rgb(0, 48, 0)"],
+colorBlue = ["rgb(212, 212, 250)", "rgb(110, 110, 210)", "rgb(122, 122, 48)", "rgb(0, 0, 122)", "rgb(0, 0, 48)"],
 colorGrey = ["rgb(222, 222, 222)", "rgb(150, 150, 150)", "rgb(0, 0, 0)", "rgb(90, 90, 90)", "rgb(48, 48, 48)"];
 const colorArray = {'red': colorRed, 'green': colorGreen, 'blue': colorBlue, 'grey': colorGrey};
 var chosenColor;
