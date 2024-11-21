@@ -504,7 +504,7 @@ p {
 }
 
 #cert1:hover {
-    box-shadow: 0 0 15px 5px var(--third) !important;
+    box-shadow: 0 0 15px 5px var(--second) !important;
     transform: scale(1.01);
 }
 

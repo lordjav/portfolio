@@ -41,10 +41,38 @@ cert1 = document.getElementById("cert1"),
 tools = document.getElementById('tools'),
 toolIcon = document.getElementById('tools-icon'),
 initials = [J, M],
-colorRed = ["rgb(250, 212, 212)", "rgb(210, 110, 110)", "rgb(48, 122, 122)", "rgb(122, 0, 0)", "rgb(48, 0, 0)"],
-colorGreen = ["rgb(212, 250, 212)", "rgb(110, 210, 110)", "rgb(122, 48, 122)", "rgb(0, 122, 0)", "rgb(0, 48, 0)"],
-colorBlue = ["rgb(212, 212, 250)", "rgb(110, 110, 210)", "rgb(122, 122, 48)", "rgb(0, 0, 122)", "rgb(0, 0, 48)"],
-colorGrey = ["rgb(222, 222, 222)", "rgb(150, 150, 150)", "rgb(0, 0, 0)", "rgb(90, 90, 90)", "rgb(48, 48, 48)"];
+colorRed = [
+    "rgb(250, 212, 212)", 
+    "rgb(210, 110, 110)", 
+    "rgb(110, 210, 210)", 
+    "rgb(0, 122, 122)", 
+    "rgb(122, 0, 0)", 
+    "rgb(48, 0, 0)"
+],
+colorGreen = [
+    "rgb(212, 250, 212)", 
+    "rgb(110, 210, 110)", 
+    "rgb(210, 110, 210)", 
+    "rgb(122, 0, 122)", 
+    "rgb(0, 122, 0)", 
+    "rgb(0, 48, 0)"
+],
+colorBlue = [
+    "rgb(212, 212, 250)", 
+    "rgb(110, 110, 210)", 
+    "rgb(210, 210, 110)", 
+    "rgb(122, 122, 0)", 
+    "rgb(0, 0, 122)", 
+    "rgb(0, 0, 48)"
+],
+colorGrey = [
+    "rgb(222, 222, 222)", 
+    "rgb(150, 150, 150)", 
+    "rgb(255, 255, 255)", 
+    "rgb(0, 0, 0)", 
+    "rgb(90, 90, 90)", 
+    "rgb(48, 48, 48)"
+];
 const colorArray = {'red': colorRed, 'green': colorGreen, 'blue': colorBlue, 'grey': colorGrey};
 var chosenColor;
 if (localStorage.getItem('chosenColor') != null) {
@@ -169,8 +197,8 @@ function changeIconColor(color) {
     icons = ['light-icon-path', 'dark-icon-path', 'color-icon-path', 'tools-icon-path', 'lang-icon-path'];
 
     for (let i = 0; i < icons.length; i++) {
-        document.getElementById(icons[i]).style.stroke = lightDarkMode === 'light' ? colorArray[color][3] : colorArray[color][1];
-        document.getElementById(icons[i]).style.fill = lightDarkMode === 'light' ? colorArray[color][1] : colorArray[color][3];
+        document.getElementById(icons[i]).style.stroke = lightDarkMode === 'light' ? colorArray[color][3] : colorArray[color][2];
+        document.getElementById(icons[i]).style.fill = lightDarkMode === 'light' ? colorArray[color][2] : colorArray[color][3];
     }
     lightMode.style.display = lightDarkMode === "light" ? "none" : "inline-block";
     darkMode.style.display = lightDarkMode === "dark" ? "none" : "inline-block";
