@@ -139,9 +139,9 @@ window.addEventListener('scroll', function() {
         H.style.flexDirection = "row"; //Change aspect of header into navbar
         sectionsContainer.classList.remove('display-none'); //Show sections-container
         nameContainer.style.width = "120px"; //Fix name-container width 
-        N.style.lineHeight = "31%"; //Fix name's line-height
         nameContainer.style.margin = "0"; //Fix name's margin
         space4.style.display = "inline-block";
+        N.classList.add('name-small');
     } else {
         S.style.display = "block";
         H.style.flexDirection = "column";
@@ -150,6 +150,7 @@ window.addEventListener('scroll', function() {
         H.style.boxShadow = "initial";
         H.style.backdropFilter = "initial";
         space4.style.display = "none";
+        N.classList.remove('name-small');
     }
 });
 
