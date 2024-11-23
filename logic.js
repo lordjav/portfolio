@@ -206,14 +206,15 @@ function changeIconColor(color) {
 }
 
 // Modal
-function showModal(id) {
-    let modal = document.getElementById(id);
+function showModal(certificate) {
+    let modal = document.getElementById('modal');
+    document.getElementById('cert-modal').setAttribute('src', certificate);
     modal.style.display = "flex";
     modal.classList.remove('hide');
     modal.classList.add('show');
 }
-function closeModal(id) {
-    let modal = document.getElementById(id);
+function closeModal() {
+    let modal = document.getElementById('modal');
     modal.style.display = "none";
     modal.classList.remove('show');
     modal.classList.add('hide');
@@ -247,6 +248,13 @@ DOMCollections.forEach((name) => {
         element.classList.add(chosenColor);
         element.classList.add(lightDarkMode);
     });
+});
+document.querySelectorAll('.white').forEach((element) => {
+    if (lightDarkMode == 'light') {
+        element.classList.remove('dark-filter');
+    } else {
+        element.classList.add('dark-filter');
+    }
 });
 
 changeNavbarColor(chosenColor);
@@ -289,6 +297,13 @@ function changeMode() {
     lightDarkMode = lightDarkMode == 'light' ? 'dark' : 'light';
     lightMode.style.display = lightDarkMode === "light" ? "inline-block" : "none";
     darkMode.style.display = lightDarkMode === "dark" ? "inline-block" : "none";
+    document.querySelectorAll('.white').forEach((element) => {
+        if (lightDarkMode == 'light') {
+            element.classList.remove('dark-filter');
+        } else {
+            element.classList.add('dark-filter');
+        }
+    });
     DOMElements.forEach((element) => {
         document.getElementById(element).classList.toggle('light');
         document.getElementById(element).classList.toggle('dark');

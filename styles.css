@@ -505,13 +505,13 @@ p {
     font-weight: 500;
 }
 
-#cert1 {
+.cert {
     width: 90vw;
     max-width: 800px;
     transition: box-shadow 200ms ease;
 }
 
-#cert1:hover {
+.cert:hover {
     box-shadow: 0 0 15px 5px var(--second) !important;
     transform: scale(1.01);
 }
@@ -534,6 +534,10 @@ p {
 
 .hide {
     animation: close-modal 300ms forwards;
+}
+
+.dark-filter {
+    filter: brightness(0.7);
 }
 
 @keyframes show-modal {
