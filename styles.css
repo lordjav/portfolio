@@ -198,17 +198,15 @@ p {
     font-weight: 800;
     position: static;   
     text-shadow: none;
-    transition: text-shadow 500ms ease;
     width: fit-content;
     margin: 0 0;
     user-select: none;
-    transition: color 300ms ease;
+    transition: color 500ms ease, text-shadow 300ms ease;
 }
 
 .name-small {
     line-height: 31% !important;
     color: var(--contrast) !important;
-    transition: color 300ms ease;
 }
 
 #name:hover {
