@@ -195,7 +195,15 @@ toolIcon.addEventListener('click', showTools);
 
 //Switch dark/light mode
 function changeIconColor(color) {
-    icons = ['light-icon-path', 'dark-icon-path', 'color-icon-path', 'tools-icon-path', 'lang-icon-path'];
+    icons = [
+        'light-icon-path', 
+        'dark-icon-path', 
+        'color-icon-path', 
+        'tools-icon-path', 
+        'lang-icon-path',
+        'select-color-icon-path-1',
+        'select-color-icon-path-2'
+    ];
 
     for (let i = 0; i < icons.length; i++) {
         document.getElementById(icons[i]).style.stroke = lightDarkMode === 'light' ? colorArray[color][3] : colorArray[color][2];
@@ -371,7 +379,17 @@ setLanguage();
 document.addEventListener('DOMContentLoaded', function() {
     H.style.display = 'flex';
  });
-  
+
+// Select color
+const selectColors = document.getElementById('select-colors-container');
+function selectColor() {
+    if (selectColors.style.display === 'none') {
+        selectColors.style.display = 'inline-block';
+    } else {
+        selectColors.style.display = 'none';
+    }
+}
+
 /*Pendientes por avanzar
 --Agregar filtro grainy al fondo.
 --Agregar cambio de color al botón en hover o active.

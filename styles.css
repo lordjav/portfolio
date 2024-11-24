@@ -313,7 +313,7 @@ p {
     float: right;
     z-index: 3;
     right: 40px;
-    width: 400%;
+    width: 700%;
     top: 4px;
     direction: rtl;    
 }
@@ -368,6 +368,15 @@ p {
 
 #change-theme:hover #dropdown-theme {
     display: inline-block;    
+}
+
+#select-colors-container {
+    display: none;
+}
+
+#select-colors {
+    display: flex;
+    flex-direction: column;
 }
 
 #scrollmeter {
