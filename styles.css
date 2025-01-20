@@ -789,7 +789,7 @@ a {
 }
 
 #blog-slideshow-container {
-    width: 1000px;
+    width: 95vw;
     height: 500px;
     background-color: var(--second);
     display: flex;
@@ -860,6 +860,9 @@ a {
     .certificates-slideshow-container, .certificates-slides {
         height: 500px;
     }
+    #blog-slideshow-container {
+        width: 992px;
+        height: 500px;
 }
 
 @media only screen and (orientation: landscape) {

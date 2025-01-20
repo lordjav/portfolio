@@ -436,9 +436,14 @@ restartInterval();
 const blogSliderContainer = document.getElementById("blog-slideshow-container");
 
 function checkImage(route) {
-    return fetch(route)
-        .then(response => response.ok)
-        .catch(() => false);
+    return new Promise((resolve) => {
+        const img = new Image();
+        
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+        
+        img.src = route;
+    });
 }
 
 async function loadBlogImages() {
@@ -446,23 +451,17 @@ async function loadBlogImages() {
 
     while (true) {
         const imageRoute = `blog-content/${i}/1.jpg`;
-        try {
-            const imageExists = await checkImage(imageRoute);
-            if (imageExists) {
-                let newBlogEntry = document.createElement('div');
-                newBlogEntry.classList.add("blog-slide");
-                newBlogEntry.id = `entry-${i}`;
-                newBlogEntry.innerHTML = `<img src="${imageRoute}">`;
-                newBlogEntry.setAttribute('onclick', `showSlideshowModal('${imageRoute}')`);
-            
-                blogSliderContainer.appendChild(newBlogEntry);
-                i++;        
-            } else {
-                console.log('No more images found');
-                break;
-            }
-        } catch (error) {
-            console.error(`Error loading image ${i}:`, error);
+        const imageExists = await checkImage(imageRoute);
+        if (imageExists) {
+            let newBlogEntry = document.createElement('div');
+            newBlogEntry.classList.add("blog-slide");
+            newBlogEntry.id = `entry-${i}`;
+            newBlogEntry.innerHTML = `<img src="${imageRoute}">`;
+            newBlogEntry.setAttribute('onclick', `showSlideshowModal('${imageRoute}')`);
+        
+            blogSliderContainer.appendChild(newBlogEntry);
+            i++;        
+        } else {
             break;
         }
     }
