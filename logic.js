@@ -1,4 +1,4 @@
-//function for adjusting style, returns value of property in number
+//function for adjusting style, returns value of property in integer
 function adjustStyle(HTMLelement, CSSelement) {
     let variable = getComputedStyle(document.getElementById(HTMLelement)).getPropertyValue(CSSelement);
     var value = "", unit = "";
@@ -39,6 +39,8 @@ aboutMeNavbar = document.getElementById("Aboutme-navbar"),
 contactNavbar = document.getElementById("Contact-navbar"),
 cert1 = document.getElementById("cert1"),
 tools = document.getElementById('tools'),
+modal = document.getElementById('modal'),
+modalContent = document.getElementById('modal-content'),
 toolIcon = document.getElementById('tools-icon'),
 initials = [J, M],
 colorRed = [
@@ -133,13 +135,13 @@ window.addEventListener('scroll', function() {
     document.getElementById("space1").style.height = (sp1Height * (1 - scroller / 500)).toFixed() + "px";
     
     if (scroller > 500) {
-        S.style.display = "none"; //Delete subtitle from header
-        changeNavbarColor(chosenColor); //Change navbar color
-        document.getElementById("space1").style.height = "0"; //Delete <space1>
-        H.style.flexDirection = "row"; //Change aspect of header into navbar
-        sectionsContainer.classList.remove('display-none'); //Show sections-container
-        nameContainer.style.width = "120px"; //Fix name-container width 
-        nameContainer.style.margin = "0"; //Fix name's margin
+        S.style.display = "none"; 
+        changeNavbarColor(chosenColor);
+        document.getElementById("space1").style.height = "0";
+        H.style.flexDirection = "row";
+        sectionsContainer.classList.remove('display-none');
+        nameContainer.style.width = "120px";
+        nameContainer.style.margin = "0";
         space4.style.display = "inline-block";
         N.classList.add('name-small');
     } else {
@@ -193,16 +195,16 @@ function showTools() {
 
 toolIcon.addEventListener('click', showTools);
 
-//Switch dark/light mode
+//Switch dark/light mode in icons
 function changeIconColor(color) {
     icons = [
         'light-icon-path', 
         'dark-icon-path', 
         'color-icon-path', 
         'tools-icon-path', 
-        'lang-icon-path',
+        'lang-icon-path'/*,
         'select-color-icon-path-1',
-        'select-color-icon-path-2'
+        'select-color-icon-path-2'*/
     ];
 
     for (let i = 0; i < icons.length; i++) {
@@ -213,36 +215,7 @@ function changeIconColor(color) {
     darkMode.style.display = lightDarkMode === "dark" ? "none" : "inline-block";
 }
 
-// Modal
-function showModal(certificate) {
-    let modal = document.getElementById('modal');
-    document.getElementById('cert-modal').setAttribute('src', certificate);
-    modal.style.display = "flex";
-    modal.classList.remove('hide');
-    modal.classList.add('show');
-}
-function closeModal() {
-    let modal = document.getElementById('modal');
-    modal.style.display = "none";
-    modal.classList.remove('show');
-    modal.classList.add('hide');
-}
-window.addEventListener('click', function(event) {
-    if (event.target.id == "modal") {
-        modal.classList.remove('show');
-        modal.classList.add('hide');
-        modal.addEventListener('animationend', (event) => {
-            if (event.animationName === 'close-modal') {
-                modal.style.display = 'none';
-            }
-        });
-    }
-    if ((!toolIcon.contains(event.target) && !tools.contains(event.target)) && tools.classList.contains('tools-visible')) {
-        showTools();
-    }
-});
-
-// Set color and mode
+// Set color and mode (dark vs light)
 var DOMElements = ['body', 'header', 'name', 'subtitle'];
 var DOMCollections = ['h3', 'h4', 'p', '.project-action'];
 
@@ -339,7 +312,7 @@ function copyEmail() {
     }
 }
 
-// Language
+// Language selection
 englishText = document.querySelectorAll('.english');
 spanishText = document.querySelectorAll('.spanish');
 var language;
@@ -364,7 +337,7 @@ function setLanguage() {
 }
 
 function changeLanguage() {
-    language = language == 'es' ? 'en' : 'es';
+    language = language === 'es' ? 'en' : 'es';
     setLanguage();
 }
 
@@ -380,15 +353,153 @@ document.addEventListener('DOMContentLoaded', function() {
     H.style.display = 'flex';
  });
 
+// Modal
+function showModal(srcAttribute) {
+    modalContent.innerHTML = `<img class="imgModal" id="imgModal" src="${srcAttribute}"></img>`;
+    modal.style.display = "flex";
+    modal.classList.remove('hide');
+    modal.classList.add('show');
+}
+function closeModal() {
+    modal.style.display = "none";
+    modal.classList.remove('show');
+    modal.classList.add('hide');
+}
+window.addEventListener('click', function(event) {
+    if (event.target.id == "modal") {
+        modal.classList.remove('show');
+        modal.classList.add('hide');
+        modal.addEventListener('animationend', (event) => {
+            if (event.animationName === 'close-modal') {
+                modal.style.display = 'none';
+            }
+        });
+    }
+    if ((!toolIcon.contains(event.target) && !tools.contains(event.target)) && tools.classList.contains('tools-visible')) {
+        showTools();
+    }
+});
+
+function showSlideshowModal(srcAttribute) {
+    showModal(srcAttribute);
+    
+    const prev = document.createElement('a');
+    prev.classList.add('prev');
+    prev.id = 'modalSlideshowPrev';
+    prev.setAttribute('onclick', 'changeSlides(`-`)');
+    prev.innerHTML = '&#10094;';
+    modalContent.insertBefore(prev, modalContent.firstChild);
+
+    const next = document.createElement('a');
+    next.classList.add('next');
+    next.id = 'modalSlideshowNext';
+    next.setAttribute('onclick', 'changeSlides(`+`)');
+    next.innerHTML = '&#10095;';
+    modalContent.appendChild(next);
+}
+
+// Slideshow. Adapted from www.W3schools.com
+let slideIndex = 1;
+showSlides(slideIndex);
+let slideIntervalID;
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+    restartInterval();
+}
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("certificates-slides");
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[slideIndex - 1].style.display = "flex";
+}
+
+function restartInterval() {
+    if (slideIntervalID) {
+        clearInterval(slideIntervalID);
+    }
+    slideIntervalID = setInterval(() => {plusSlides(1)}, 5000);
+}
+
+restartInterval();
+
+// Blog slideshow
+const blogSliderContainer = document.getElementById("blog-slideshow-container");
+
+function checkImage(route) {
+    return fetch(route)
+        .then(response => response.ok)
+        .catch(() => false);
+}
+
+async function loadBlogImages() {
+    let i = 0;
+
+    while (true) {
+        const imageRoute = `blog-content/${i}/1.jpg`;
+        try {
+            const imageExists = await checkImage(imageRoute);
+            if (imageExists) {
+                let newBlogEntry = document.createElement('div');
+                newBlogEntry.classList.add("blog-slide");
+                newBlogEntry.id = `entry-${i}`;
+                newBlogEntry.innerHTML = `<img src="${imageRoute}">`;
+                newBlogEntry.setAttribute('onclick', `showSlideshowModal('${imageRoute}')`);
+            
+                blogSliderContainer.appendChild(newBlogEntry);
+                i++;        
+            } else {
+                console.log('No more images found');
+                break;
+            }
+        } catch (error) {
+            console.error(`Error loading image ${i}:`, error);
+            break;
+        }
+    }
+}
+
+loadBlogImages();
+
+// Modal slideshow
+async function changeSlides(symbol) {
+    const imgModal = document.getElementById('imgModal');
+    route = imgModal.getAttribute('src');
+    let extension = route.substring(route.indexOf('.'));
+    let secondSlash = route.indexOf('/', route.indexOf('/') + 1);
+    let partialRoute = route.substring(0, secondSlash + 1);
+    let imgId = parseInt(route.substring(secondSlash + 1, route.indexOf('.')));
+    let newRoute = '';
+    if (symbol === '+') {
+        newRoute = partialRoute + (imgId + 1) + extension;
+    } else if (symbol === '-') {
+        newRoute = partialRoute + (imgId - 1) + extension;
+    }
+
+    const imageExists = await checkImage(newRoute);
+    if (imageExists) {
+        imgModal.setAttribute('src', newRoute);
+    }
+}
+
 // Select color
-const selectColors = document.getElementById('select-colors-container');
+/*const selectColors = document.getElementById('select-colors-container');
 function selectColor() {
     if (selectColors.style.display === 'none') {
         selectColors.style.display = 'inline-block';
     } else {
         selectColors.style.display = 'none';
     }
-}
+}*/
 
 /*Pendientes por avanzar
 --Agregar filtro grainy al fondo.

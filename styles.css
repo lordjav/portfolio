@@ -114,6 +114,10 @@ h3 {
     margin: 0 10px;
 }
 
+.article-title {
+    margin-bottom: 50px;
+}
+
 .sections-navbar {
     color: var(--contrast) !important;
 }
@@ -370,9 +374,9 @@ p {
     display: inline-block;    
 }
 
-#select-colors-container {
+/*#select-colors-container {
     display: none;
-}
+}*/
 
 #select-colors {
     display: flex;
@@ -512,17 +516,6 @@ p {
     font-weight: 500;
 }
 
-.cert {
-    width: 90vw;
-    max-width: 800px;
-    transition: box-shadow 200ms ease;
-}
-
-.cert:hover {
-    box-shadow: 0 0 15px 5px var(--second) !important;
-    transform: scale(1.01);
-}
-
 #modal {
     display: none; 
     position: fixed; 
@@ -560,12 +553,12 @@ p {
 #modal-content {    
     padding: 20px;
     margin: auto;
-    border: 1px solid #888;
+    /* border: 1px solid #888; */
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 15px 5px #595959;
-    background-color: white;
+    /* box-shadow: 0 0 15px 5px #595959; */
+    /* background-color: white; */
 }
 
 #modal-content img {
@@ -706,6 +699,83 @@ a {
     transition: fill 300ms ease, stop-color 300ms ease;
 }
 
+.certificates-slideshow-container {    
+    position: relative;
+    width: 80vw;
+    height: 80vw;
+    margin: auto;
+}
+
+.certificates-slides {
+    display: none;
+    width: 80vw;
+    height: 80vw;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 20px;
+    justify-content: center;
+    transition: box-shadow 200ms ease;
+}
+
+.prev, .next {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 40%;
+    contain: content;
+    border-radius: 0 5px 5px 0;
+    padding: 16px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 2rem;
+    transition: 600ms ease;
+    user-select: none;
+    z-index: 1;
+    text-shadow: 3px 3px 5px #383838;
+}
+
+.next {
+    right: 0;
+    border-radius: 5px 0 0 5px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+#modalSlideshowPrev, #modalSlideshowNext {
+    position: static;
+}
+
+#modalSlideshowPrev {
+    border-radius: 5px 0 0 5px;
+}
+
+#modalSlideshowNext {
+    right: unset;
+    border-radius: 0 5px 5px 0;
+}
+
+.cert {
+    margin: 0;
+    padding: 0;
+    transform: scale(1.2);
+}
+
+.certificates-slides:hover {
+    box-shadow: 0 0 15px 5px var(--third) !important;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+  
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
 @media only screen and (min-width: 0) {
     #sections-container {
         display: none;
@@ -718,6 +788,62 @@ a {
     }
 }
 
+#blog-slideshow-container {
+    width: 1000px;
+    height: 500px;
+    background-color: var(--second);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow-x: scroll;
+    border-radius: 10px;
+}
+
+.blog-slide {
+    width: 320px;
+    height: 400px;
+    margin: 20px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+.blog-slide:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px 5px var(--third) !important;
+}
+
+.blog-slide > img {
+    width: 320px;
+    height: 400px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 0px;
+}
+
+#blog-slideshow-container::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--first);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--third);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--fourth);
+}
+
 @media only screen and (min-width: 992px) {
     #sections-container {
         display: flex;
@@ -727,6 +853,12 @@ a {
     }
     #about-me-info {
         flex-direction: row;
+    }
+    .certificates-slideshow-container, .certificates-slides {
+        width: 500px;        
+    }
+    .certificates-slideshow-container, .certificates-slides {
+        height: 500px;
     }
 }
 
@@ -743,3 +875,4 @@ a {
         height: fit-content;
     }
 }
+
