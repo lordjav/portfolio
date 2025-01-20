@@ -863,6 +863,7 @@ a {
     #blog-slideshow-container {
         width: 992px;
         height: 500px;
+    }
 }
 
 @media only screen and (orientation: landscape) {
@@ -878,4 +879,3 @@ a {
         height: fit-content;
     }
 }
-
