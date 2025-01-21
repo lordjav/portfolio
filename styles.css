@@ -730,7 +730,7 @@ a {
     font-size: 2rem;
     transition: 600ms ease;
     user-select: none;
-    z-index: 1;
+    z-index: 0;
     text-shadow: 3px 3px 5px #383838;
 }
 
