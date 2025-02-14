@@ -699,6 +699,96 @@ a {
     transition: fill 300ms ease, stop-color 300ms ease;
 }
 
+.material-icon:hover .material-lighter1 {
+    fill: #ffe0b2 !important;
+    transition: fill 300ms ease;
+}
+
+.material-icon:hover .material-lighter2 {
+    fill: #fff3e0 !important;
+    transition: fill 300ms ease;
+}
+
+.material-icon:hover .material-lighter3 {
+    fill: #fff !important;
+    transition: fill 300ms ease;
+}
+
+.material-icon:hover .material-light {
+    fill: #ffa726 !important;
+    transition: fill 300ms ease;
+}
+
+.material-icon:hover .material-dark {
+    fill: #fb8c00 !important;
+    transition: fill 300ms ease;
+}
+
+.angular-icon:hover .angular-lighter {
+    stop-color: #e40035 !important;
+    transition: stop-color 300ms ease;
+}
+
+.angular-icon:hover .angular-light1 {
+    stop-color: #f60a48 !important;
+    transition: stop-color 300ms ease;
+}
+
+.angular-icon:hover .angular-light2 {
+    stop-color: #f20755 !important;
+    transition: stop-color 300ms ease;
+}
+
+.angular-icon:hover .angular-light3 {
+    stop-color: #ff31d9 !important;
+    transition: stop-color 300ms ease;
+}
+
+.angular-icon:hover .angular-dark1 {
+    stop-color: #dc087d !important;
+    transition: stop-color 300ms ease;
+}
+
+.angular-icon:hover .angular-dark2 {
+    stop-color: #9717e7 !important;
+    transition: stop-color 300ms ease;
+}
+
+.angular-icon:hover .angular-dark3 {
+    stop-color: #ff5be1 !important;
+    transition: stop-color 300ms ease;
+}
+
+.angular-icon:hover .angular-darker {
+    stop-color: #6c00f5 !important;
+    transition: stop-color 300ms ease;
+}
+
+.mysql-icon:hover .mysql-light {
+    fill: #e48e00 !important;
+    transition: fill 300ms ease;
+}
+
+.mysql-icon:hover .mysql-dark {
+    fill: #00618a !important;
+    transition: fill 300ms ease;
+}
+
+.java-icon:hover .java-light {
+    fill: #ea2d2e !important;
+    transition: fill 300ms ease;
+}
+
+.java-icon:hover .java-dark {
+    fill: #0074bd !important;
+    transition: fill 300ms ease;
+}
+
+.spring-icon:hover .spring-light {
+    fill: #77bc1f !important;
+    transition: fill 300ms ease;
+}
+
 .certificates-slideshow-container {    
     position: relative;
     width: 80vw;
