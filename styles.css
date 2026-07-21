@@ -436,15 +436,23 @@ p {
     border-radius: 20px;
 }
 
-#trackolus-image, #profile-photo {
+#trackolus-image, #appointbot-image, #profile-photo {
     width: 80vw;    
     margin: calc(100vw / 45);
     padding: unset;
 }
 
-#trackolus-image {
+#trackolus-image, #appointbot-image {
     max-width: 450px;
 }
+
+.use-your-brain-preview { width: min(80vw, 450px); height: min(80vw, 450px); flex: 0 0 min(80vw, 450px); display: flex; flex-direction: column; align-items: center; justify-content: center; margin: calc(100vw / 45); border-radius: 20px; background: linear-gradient(135deg, #4776e6, #8e54e9); }
+.use-your-brain-preview span { font-size: 7rem; }
+.use-your-brain-preview p { margin: 0; color: #fff !important; font-size: 2rem; font-weight: 800; line-height: 1.1; text-align: center; }
+.github-pages-mark { transition: fill 300ms ease; }
+.github-pages-icon:hover .github-pages-mark { fill: #181616 !important; }
+.github-pages-link { display: flex; border-radius: 8px; transition: background-color 300ms ease; }
+.github-pages-link:hover { background-color: var(--light); }
 
 #profile-photo {
     max-width: 300px;
@@ -764,13 +772,13 @@ a {
     transition: stop-color 300ms ease;
 }
 
-.mysql-icon:hover .mysql-light {
-    fill: #e48e00 !important;
+.postgresql-icon:hover .postgresql-light {
+    fill: #fff !important;
     transition: fill 300ms ease;
 }
 
-.mysql-icon:hover .mysql-dark {
-    fill: #00618a !important;
+.postgresql-icon:hover .postgresql-dark {
+    fill: #336791 !important;
     transition: fill 300ms ease;
 }
 
@@ -787,6 +795,54 @@ a {
 .spring-icon:hover .spring-light {
     fill: #77bc1f !important;
     transition: fill 300ms ease;
+}
+
+.python-icon:hover .color-dark {
+    fill: #306998 !important;
+}
+
+.python-icon:hover .color-light {
+    fill: #ffd43b !important;
+}
+
+.appointbot-lambda-icon:hover .appointbot-lambda-start {
+    stop-color: #c8511b !important;
+}
+
+.appointbot-lambda-icon:hover .appointbot-lambda-end {
+    stop-color: #f90 !important;
+}
+
+.appointbot-dynamodb-icon:hover .appointbot-dynamodb-start {
+    stop-color: #2e27ad !important;
+}
+
+.appointbot-dynamodb-icon:hover .appointbot-dynamodb-end {
+    stop-color: #527fff !important;
+}
+
+.appointbot-claude-icon:hover .color-dark {
+    fill: #d97757 !important;
+}
+
+.appointbot-whatsapp-icon:hover .appointbot-whatsapp-start {
+    stop-color: #1faf38 !important;
+}
+
+.appointbot-whatsapp-icon:hover .appointbot-whatsapp-end {
+    stop-color: #60d669 !important;
+}
+
+#appointbot .technology-icon .color-dark,
+#appointbot .technology-icon .color-light,
+#appointbot .technology-icon .color-lighter,
+#appointbot .technology-icon .appointbot-lambda-start,
+#appointbot .technology-icon .appointbot-lambda-end,
+#appointbot .technology-icon .appointbot-dynamodb-start,
+#appointbot .technology-icon .appointbot-dynamodb-end,
+#appointbot .technology-icon .appointbot-whatsapp-start,
+#appointbot .technology-icon .appointbot-whatsapp-end {
+    transition: fill 300ms ease, stop-color 300ms ease;
 }
 
 .certificates-slideshow-container {    
