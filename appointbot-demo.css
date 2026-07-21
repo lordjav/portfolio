@@ -1,0 +1,62 @@
+:root {
+  --navy: #1d3557;
+  --blue: #3778c2;
+  --mint: #41b89c;
+  --paper: #f0f4f8;
+  --white: #fff;
+  --ink: #1d3557;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "Open Sans", sans-serif;
+}
+
+.demo-page { max-width: 1480px; margin: auto; padding: 32px; }
+
+.back-link { color: var(--blue); font-weight: 700; text-decoration: none; }
+
+.hero, .chat-section, .calendar-section {
+  background: var(--white);
+  border-radius: 24px;
+  box-shadow: 0 12px 35px rgba(29, 53, 87, .08);
+}
+
+.hero { display: flex; align-items: center; gap: 28px; margin: 24px 0; padding: 32px; }
+.hero-logo { width: 125px; border-radius: 18px; }
+.hero h1, h2, h3, p { margin-top: 0; }
+.hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 8px; }
+.hero p { max-width: 680px; margin-bottom: 0; }
+.eyebrow { color: var(--blue); font-size: .78rem; font-weight: 800; letter-spacing: .12em; }
+
+.chat-section { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 32px; padding: 36px; }
+.chat-section h2, .calendar-section h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); margin-bottom: 10px; }
+.chat-section p { max-width: 600px; }
+.chat-button { display: inline-block; margin-top: 8px; padding: 13px 22px; border-radius: 9px; background: var(--mint); color: var(--white); font-weight: 700; text-decoration: none; transition: transform 300ms ease, background-color 300ms ease; }
+.chat-button:hover { background: var(--blue); transform: scale(1.03); }
+.chat-button.is-disabled { cursor: not-allowed; opacity: .55; pointer-events: none; }
+.setup-note { margin-top: 16px; color: #61758d; font-size: .9rem; }
+.qr-card { display: grid; place-items: center; width: 280px; height: 280px; padding: 12px; border: 2px dashed var(--blue); border-radius: 18px; }
+.qr-card img { width: 100%; height: 100%; }
+.qr-placeholder { color: var(--blue); font-weight: 800; letter-spacing: .08em; line-height: 1.6; text-align: center; }
+
+.calendar-section { margin-top: 24px; padding: 36px; }
+.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; }
+.section-heading > p { max-width: 410px; color: #61758d; }
+.calendar-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 28px; }
+.calendar-card { overflow: hidden; border: 1px solid #dbe5ef; border-radius: 16px; }
+.calendar-card h3 { margin: 0; padding: 16px 20px; background: var(--navy); color: var(--white); font-size: 1rem; }
+.calendar-card iframe { display: block; width: 100%; height: 560px; border: 0; }
+
+@media (max-width: 1050px) { .calendar-grid { grid-template-columns: 1fr; } }
+@media (max-width: 650px) {
+  .demo-page { padding: 18px; }
+  .hero, .chat-section, .calendar-section { padding: 24px; }
+  .hero, .chat-section, .section-heading { align-items: flex-start; flex-direction: column; }
+  .chat-section { grid-template-columns: 1fr; }
+  .qr-card { width: 100%; max-width: 280px; }
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Demo de AppointBot: asistente de citas con IA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="appointbot-demo.css">
+  <title>AppointBot | Demo</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+  <main class="demo-page" data-whatsapp-number="573180081497">
+    <a class="back-link" href="index.html#appointbot">← Volver al portfolio</a>
+
+    <section class="hero">
+      <img src="appointbot.png" alt="AppointBot" class="hero-logo">
+      <div>
+        <p class="eyebrow">DEMO EN VIVO</p>
+        <h1>AppointBot</h1>
+        <p>Agenda una cita con el agente y observa cómo se refleja en los calendarios de cada sucursal.</p>
+      </div>
+    </section>
+
+    <section class="chat-section" aria-labelledby="chat-title">
+      <div>
+        <p class="eyebrow">1. CONVERSA CON EL AGENTE</p>
+        <h2 id="chat-title">Agenda por WhatsApp</h2>
+        <p>Escanea el código QR desde otro dispositivo o abre el chat directamente desde este equipo.</p>
+        <a id="whatsapp-link" class="chat-button is-disabled" href="#" aria-disabled="true">Abrir chat de WhatsApp</a>
+        <p id="whatsapp-status" class="setup-note">Pendiente de configurar el número de WhatsApp Business.</p>
+      </div>
+      <div class="qr-card">
+        <img id="qr-code" alt="Código QR para abrir el chat de AppointBot" hidden>
+        <div id="qr-placeholder" class="qr-placeholder">QR<br>pendiente</div>
+      </div>
+    </section>
+
+    <section class="calendar-section" aria-labelledby="calendars-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">2. REVISA LAS CITAS CREADAS</p>
+          <h2 id="calendars-title">Calendarios por sucursal</h2>
+        </div>
+        <p>Los eventos se actualizan en Google Calendar a medida que el agente los gestiona.</p>
+      </div>
+      <div class="calendar-grid">
+        <article class="calendar-card">
+          <h3>Buenos Aires</h3>
+          <iframe title="Calendario de la sucursal Buenos Aires" src="https://calendar.google.com/calendar/embed?src=97e479da47709410b900fe3a54badae25c6c9dfa0d428cbb33438daadcde339e%40group.calendar.google.com&amp;ctz=America%2FBogota" frameborder="0" scrolling="no"></iframe>
+        </article>
+        <article class="calendar-card">
+          <h3>New York</h3>
+          <iframe title="Calendario de la sucursal New York" src="https://calendar.google.com/calendar/embed?src=34790ddeba8765f5600bc03151c654c370de09d45afd73ecb6229738d41a2b67%40group.calendar.google.com&amp;ctz=America%2FBogota" frameborder="0" scrolling="no"></iframe>
+        </article>
+        <article class="calendar-card">
+          <h3>Madrid</h3>
+          <iframe title="Calendario de la sucursal Madrid" src="https://calendar.google.com/calendar/embed?src=d0dc1577905590eb1a27ca40ba71592bad019ca9f23fdd31b81206a839078af2%40group.calendar.google.com&amp;ctz=America%2FBogota" frameborder="0" scrolling="no"></iframe>
+        </article>
+      </div>
+    </section>
+  </main>
+  <script>
+    const demo = document.querySelector('.demo-page');
+    const phoneNumber = demo.dataset.whatsappNumber.replace(/\D/g, '');
+    const chatLink = document.getElementById('whatsapp-link');
+    const qrCode = document.getElementById('qr-code');
+    const qrPlaceholder = document.getElementById('qr-placeholder');
+    const status = document.getElementById('whatsapp-status');
+
+    if (phoneNumber) {
+      const chatUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent('Hola, quiero agendar una cita con AppointBot.')}`;
+      chatLink.href = chatUrl;
+      chatLink.removeAttribute('aria-disabled');
+      chatLink.classList.remove('is-disabled');
+      qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=${encodeURIComponent(chatUrl)}`;
+      qrCode.hidden = false;
+      qrPlaceholder.hidden = true;
+      status.hidden = true;
+    }
+  </script>
+</body>
+</html>
